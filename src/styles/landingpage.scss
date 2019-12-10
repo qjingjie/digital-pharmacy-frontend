@@ -1,0 +1,128 @@
+$info_panel_width: 15vw;
+
+.landingpage {
+    width: inherit;
+    height: inherit;
+
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.015em;
+    display: flex;
+}
+
+.images {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.imgA {
+    background-image: url('../img/girl-walking-wall-whitespace-32246.png');
+    height: 100vh;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.imgA p {
+    position: absolute;
+    width: 50vw;
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 64px;
+    top: 38vh;
+    left: 16vw;
+    
+    color: #000000;
+}
+
+.imgB {
+    background-image: url('../img/marina-bay-sans-singapore-2804038.png');
+    height: 100vh;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.imgB p {
+    position: absolute;
+    width: 50vw;
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 64px;
+    top: 1vh;
+    left: 116vw;
+
+    color: #ffffff;
+}
+
+.info_panel_container {
+    position: relative;
+    width: $info_panel_width;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+.begin_panel_container {
+    position: relative;
+    width: 30vw;
+    height: 5vh;
+    left: 27.5vw;
+    top: 90vh;
+    border-radius: 15vw;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+
+.begin_panel_container p {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0px;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    padding: 1.2vh 0vw;
+
+    color: #ffffff;
+    text-shadow: 0px 1px 2px #000000;
+}
+
+.ptr_icon {
+    position: absolute;
+    height: 6vh;
+    width: 10vw;
+    top: 83vh;
+    right: 37.5vw;
+    filter: drop-shadow(0px 1px 2px #000000);
+    transform-origin: center;
+    animation: beating 1.2s ease-in-out infinite;
+}
+
+@keyframes beating{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0.8);
+    }
+
+}
+
+.hidden_btn {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+}

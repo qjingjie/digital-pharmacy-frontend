@@ -1,3 +1,14 @@
+﻿## Current Dependencies
+npm install react-router
+npm install react-router-dom
+npm install node-sass
+npm install --save react-swipeable-views
+npm install react-swipeable-views-utils
+npm install react-transition-group --save
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
