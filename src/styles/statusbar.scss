@@ -1,0 +1,36 @@
+.status_bar {
+  width: 100vw;
+  height: 6vh;
+  background: #367588;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  align-items: center;
+}
+
+.clk_container {
+  position: absolute;
+  display: flex;
+  color: #ffffff;
+  font-size: 28px;
+  right: 1vw;
+
+  .line1,
+  .line2 {
+    width: 0px;
+    height: 4vh;
+    margin: auto;
+    border: 1px solid #ffffff;
+  }
+
+  .day,
+  .date,
+  .year,
+  .time {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

@@ -1,58 +1,58 @@
 * {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .clkA_container {
-    position: absolute;
-    width: inherit;
-    height: 35vh;
-    margin: auto;
-    top: 30%;
+  position: absolute;
+  width: inherit;
+  height: 35vh;
+  margin: auto;
+  top: 30%;
 
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: -0.015em;
-    color: #ffffff;
-    text-align: center;
-    text-shadow: 0px 1px 2px #000000;
-}
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0px 1px 2px #000000;
 
-.month {
+  .month {
     font-size: 32px;
     line-height: 32px;
-}
+  }
 
-.date {
+  .date {
     font-size: 58px;
     line-height: 58px;
-}
+  }
 
-.year {
+  .year {
     font-size: 32px;
     line-height: 32px;
-}
+  }
 
-.line {
+  .line {
     width: 10vw;
     height: 0px;
     margin: auto;
     border: 1.25px solid #ffffff;
     box-shadow: 0px 1px 2px #000000;
-}
+  }
 
-.day {
+  .day {
     font-size: 32px;
     line-height: 32px;
-}
+  }
 
-.time {
+  .time {
     font-size: 54.5px;
     line-height: 54.5px;
-}
+  }
 
-.am_pm {
+  .am_pm {
     font-size: 32px;
     line-height: 32px;
+  }
 }

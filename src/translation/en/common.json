@@ -1,0 +1,33 @@
+{
+  "status": {
+    "JAN": "JAN",
+    "FEB": "FEB",
+    "MAR": "MAR",
+    "APR": "APR",
+    "MAY": "MAY",
+    "JUN": "JUN",
+    "JUL": "JUL",
+    "AUG": "AUG",
+    "SEP": "SEP",
+    "OCT": "OCT",
+    "NOV": "NOV",
+    "DEC": "DEC",
+    "MON": "MON",
+    "TUE": "TUE",
+    "WED": "WED",
+    "THU": "THU",
+    "FRI": "FRI",
+    "SAT": "SAT",
+    "SUN": "SUN",
+    "1": "AM",
+    "2": "AM",
+    "3": "AM",
+    "4": "PM",
+    "5": "PM"
+  },
+  "selectionpage": {
+    "helper": "Please Select Your Choice Of Medication",
+    "gsl": "General Sales List",
+    "presc": "Prescription"
+  }
+}

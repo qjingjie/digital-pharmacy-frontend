@@ -1,10 +1,11 @@
 ﻿## Current Dependencies
-npm install react-router
-npm install react-router-dom
-npm install node-sass
-npm install --save react-swipeable-views
-npm install react-swipeable-views-utils
-npm install react-transition-group --save
+npm install react-router <br />
+npm install react-router-dom <br />
+npm install node-sass <br />
+npm install --save react-swipeable-views <br />
+npm install react-swipeable-views-utils <br />
+npm install react-transition-group --save <br />
+npm install react-switch-lang --save <br />
 
 
 
