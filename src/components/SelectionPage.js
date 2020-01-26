@@ -1,9 +1,8 @@
 import React from "react";
-import { withRouter, Route, Switch } from "react-router-dom";
 import { Redirect } from "react-router";
 import { withTranslation } from "react-i18next";
 import FwdBtn from "./FwdBtn";
-import "../styles/selectionpage.scss";
+import "../styles/app.scss";
 
 class SelectionPage extends React.Component {
   state = {
@@ -11,7 +10,7 @@ class SelectionPage extends React.Component {
   };
 
   componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 180000); // Redirects to landing page after 3mins on inactivity
+    this.id = setTimeout(() => this.setState({ redirect: true }), 18000000000); // Redirects to landing page after 3mins on inactivity
   }
 
   componentWillUnmount() {
@@ -23,14 +22,23 @@ class SelectionPage extends React.Component {
       return <Redirect push to="/" />;
     }
     return (
-      <div className="selectionpage">
-        <p className="helper_txt"> {this.props.t("selectionpage.helper")} </p>
-        <div className="btn_container">
-          <div className="gsl_txt">{this.props.t("selectionpage.gsl")}</div>
-          <div className="presc_txt">{this.props.t("selectionpage.presc")}</div>
-          <FwdBtn path="/gsl" name="gsl_btn" />
+      <div className="l-selectionpage">
+        <div className="l-text-container">
+          <p className="m-welcome"> {this.props.t("selectionpage.welcome")} </p>
+          <p className="m-helper"> {this.props.t("selectionpage.helper")} </p>
+        </div>
 
-          <FwdBtn path="/inforequest" name="presc_btn" />
+        <div className="l-btn-container">
+          <div className="m-gsl-cta">
+            <FwdBtn path="/gsl" text={this.props.t("selectionpage.gsl")} />
+          </div>
+
+          <div className="m-presc-cta">
+            <FwdBtn
+              path="/getpresc"
+              text={this.props.t("selectionpage.presc")}
+            />
+          </div>
         </div>
       </div>
     );

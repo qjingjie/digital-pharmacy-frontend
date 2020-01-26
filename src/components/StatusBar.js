@@ -1,27 +1,28 @@
 import React from "react";
 import { withTranslation } from "react-i18next";
-import "../styles/statusbar.scss";
+import BackBtn from "./BackBtn";
+import "../styles/app.scss";
+
+const monthNames = [
+  "JAN",
+  "FEB",
+  "MAR",
+  "APR",
+  "MAY",
+  "JUN",
+  "JUL",
+  "AUG",
+  "SEP",
+  "OCT",
+  "NOV",
+  "DEC"
+];
+
+const dayNames = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
 class StatusBar extends React.Component {
   constructor(props) {
     super(props);
-
-    let monthNames = [
-      "JAN",
-      "FEB",
-      "MAR",
-      "APR",
-      "MAY",
-      "JUN",
-      "JUL",
-      "AUG",
-      "SEP",
-      "OCT",
-      "NOV",
-      "DEC"
-    ];
-
-    let dayNames = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
     let date = new Date();
     let hours = date.getHours();
@@ -46,11 +47,15 @@ class StatusBar extends React.Component {
       month: "status.".concat(monthNames[date.getMonth()]),
       date: date.getDate(),
       year: date.getFullYear(),
-      day: "status.".concat(dayNames[date.getDay()]),
+      day: "status.".concat(dayNames[date.getDay() - 1]),
       hour: hours,
       minute: minutes,
-      am_pm: "status.".concat(ampm)
+      am_pm: "status.".concat(ampm),
+      lang: this.props.trans.languages[0],
+      lang_dis: this.props.trans.languages[0] === "en" ? "中文" : "EN"
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -62,23 +67,6 @@ class StatusBar extends React.Component {
   }
 
   tick() {
-    let monthNames = [
-      "JAN",
-      "FEB",
-      "MAR",
-      "APR",
-      "MAY",
-      "JUN",
-      "JUL",
-      "AUG",
-      "SEP",
-      "OCT",
-      "NOV",
-      "DEC"
-    ];
-
-    let dayNames = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -102,17 +90,37 @@ class StatusBar extends React.Component {
       month: "status.".concat(monthNames[date.getMonth()]),
       date: date.getDate(),
       year: date.getFullYear(),
-      day: "status.".concat(dayNames[date.getDay()]),
+      day: "status.".concat(dayNames[date.getDay() - 1]),
       hour: hours,
       minute: minutes,
       am_pm: "status.".concat(ampm)
     });
   }
 
+  handleClick() {
+    if (this.state.lang === "en") {
+      this.setState({
+        lang: "ch",
+        lang_dis: "EN"
+      });
+      this.props.trans.changeLanguage("ch");
+    } else {
+      this.setState({
+        lang: "en",
+        lang_dis: "中文"
+      });
+      this.props.trans.changeLanguage("en");
+    }
+  }
+
   render() {
     return (
-      <div className="status_bar">
-        <div className="clk_container">
+      <header>
+        <BackBtn name="m-back" text={this.props.t("status.back")} />
+        <button className="m-langswitch" onClick={this.handleClick}>
+          {this.state.lang_dis}
+        </button>
+        <div className="m-clk">
           <p className="day"> {this.props.t(this.state.day)} </p>
           <p className="line1"> </p>
           <p className="date"> {this.state.date} </p>
@@ -124,7 +132,7 @@ class StatusBar extends React.Component {
           </p>
           <p className="am_pm"> {this.props.t(this.state.am_pm)} </p>
         </div>
-      </div>
+      </header>
     );
   }
 }

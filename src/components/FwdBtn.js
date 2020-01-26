@@ -2,8 +2,8 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 class FwdBtn extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.routeChange = this.routeChange.bind(this);
   }
 

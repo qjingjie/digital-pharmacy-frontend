@@ -1,0 +1,65 @@
+.getpresc-container {
+  position: relative;
+  width: 100vw;
+  height: 92vh;
+
+  margin: 0;
+  padding: 0;
+}
+
+.react-player {
+  position: absolute;
+  top: 250px;
+  left: 20px;
+}
+.qr-container {
+  position: absolute;
+  width: 55.2vw;
+  height: 88vh;
+  left: 43.2vw;
+  top: 9vh;
+
+  background: none;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+  font-size: 22px;
+  font-weight: normal;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+
+  p {
+    padding-top: 40px;
+  }
+
+  img {
+    position: absolute;
+    width: 30.2vw;
+    top: 0px;
+    left: 0px;
+
+    padding-left: 12.5vw;
+    padding-right: 12.5vw;
+    padding-top: 18vh;
+
+    z-index: -1;
+  }
+}
+
+#scan-line {
+  animation: scan 2.5s ease-in-out infinite;
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(-210px);
+  }
+  to {
+    transform: translateY(195px);
+  }
+}

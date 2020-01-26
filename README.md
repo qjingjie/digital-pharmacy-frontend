@@ -5,7 +5,9 @@ npm install node-sass <br />
 npm install --save react-swipeable-views <br />
 npm install react-swipeable-views-utils <br />
 npm install react-transition-group --save <br />
-npm install react-switch-lang --save <br />
+npm install --save i18next <br />
+npm install --save react-i18next <br />
+npm install --save reace-player <br />
 
 
 

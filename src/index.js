@@ -9,6 +9,10 @@ import common_en from "./translation/en/common.json";
 import common_ch from "./translation/ch/common.json";
 
 i18next.init({
+  whitelist: ["en", "ch"],
+  nonExplicitWhitelist: true,
+  load: "languageOnly",
+  fallbackLng: "en",
   interpolation: { escapeValue: false },
   lng: "en", // Language to use
   resources: {

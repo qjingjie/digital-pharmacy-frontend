@@ -1,0 +1,266 @@
+$PrimaryFont: whitesmoke;
+$SecondaryFont: black;
+$Orange: #e79b25;
+$Basepanel: whitesmoke;
+
+.m-sidebar {
+  position: absolute;
+  width: 60px;
+  height: calc(100vh - 70px);
+  left: 10px;
+
+  color: $PrimaryFont;
+  text-align: center;
+  font-size: 12px;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+
+  border-radius: 10px;
+  margin-top: 10px;
+
+  p {
+    width: 45px;
+    height: 100px;
+    margin: calc((100vh - 160px) / 2) auto;
+  }
+}
+
+.m-item-list {
+  position: absolute;
+  width: 430px;
+  height: 350px;
+
+  background-color: $PrimaryFont;
+
+  padding: 0px;
+
+  margin-left: 25px;
+
+  border-radius: 10px;
+
+  overflow-y: scroll;
+}
+
+.m-item-list::-webkit-scrollbar {
+  display: none;
+}
+
+.m-checkout-cta {
+  position: absolute;
+  width: 450px;
+  height: 45px;
+  bottom: 0px;
+
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+  font-size: 22px;
+  font-weight: bold;
+  color: $PrimaryFont;
+
+  background-color: $Orange;
+  border: none;
+  border-radius: 10px;
+
+  margin-left: 25px;
+  margin-bottom: 20px;
+
+  outline: none;
+}
+
+.m-checkout-cta:active {
+  background-color: darken($Orange, 10%);
+  color: darken($PrimaryFont, 10%);
+}
+
+.m-item-cta {
+  width: 200px;
+  height: calc((100vh - 90px) / 3);
+
+  outline: none;
+}
+
+.m-iteminfo {
+  width: 760px;
+  height: calc(100vh - 70px);
+
+  background-color: $Basepanel;
+
+  margin-left: 5px;
+
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-rows: 50px 26px 60px 21px 40px 3fr 3fr 1fr 65px;
+  grid-template-columns: 1fr 1fr 70px;
+  grid-template-areas:
+    "img      gap1     close"
+    "img      brand    gap2"
+    "img      _name    gap3"
+    "img      price    gap4"
+    "img      stock    gap5"
+    "img      desc     gap6"
+    "qty      qty      qty"
+    "subtotal subtotal subtotal"
+    "add     add       add";
+
+  .m-close-btn {
+    grid-area: close;
+    width: 70px;
+    height: 50px;
+
+    background-image: url("../../icons/close.png");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $Basepanel;
+
+    border: none;
+    border-top-right-radius: 10px;
+
+    outline: none;
+  }
+
+  .m-close-btn:active {
+    background-color: $Orange;
+  }
+
+  .m-iteminfo-img {
+    grid-area: img;
+    background-color: $Orange;
+    margin: 10px;
+
+    border-radius: 10px;
+  }
+
+  .m-iteminfo-brand {
+    grid-area: brand;
+    font-size: 16px;
+    color: lighten($SecondaryFont, 60%);
+  }
+
+  .m-iteminfo-name {
+    grid-area: _name;
+    font-size: 36px;
+  }
+
+  .m-iteminfo-price {
+    grid-area: price;
+    font-size: 16px;
+  }
+
+  .m-iteminfo-stock {
+    grid-area: stock;
+    font-size: 16px;
+  }
+
+  .m-iteminfo-desc {
+    grid-area: desc;
+    font-size: 16px;
+  }
+
+  .m-iteminfo-counter {
+    grid-area: qty;
+    display: flex;
+    width: 240px;
+
+    margin: auto;
+
+    .m-iteminfo-plus,
+    .m-iteminfo-minus {
+      width: 50px;
+      height: 50px;
+
+      margin: auto;
+
+      border-radius: 15px;
+      font-size: 36px;
+
+      outline: none;
+    }
+
+    .m-iteminfo-count {
+      width: 100px;
+      height: 50px;
+
+      border-radius: 15px;
+      font-size: 24px;
+
+      text-align: center;
+      vertical-align: middle;
+      line-height: 50px;
+      background-color: lighten($SecondaryFont, 80%);
+    }
+  }
+
+  .m-iteminfo-subtotal {
+    grid-area: subtotal;
+    margin: auto 25px;
+
+    font-size: 24px;
+  }
+
+  .m-iteminfo-addtocart {
+    grid-area: add;
+    width: 710px;
+    height: 45px;
+
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.015em;
+    font-size: 22px;
+    font-weight: bold;
+    color: $PrimaryFont;
+
+    background-color: $Orange;
+    border: none;
+
+    border-radius: 10px;
+
+    margin-left: 25px;
+    outline: none;
+  }
+
+  .m-iteminfo-addtocart:active {
+    background-color: darken($Orange, 10%);
+    color: darken($PrimaryFont, 10%);
+  }
+}
+
+.m-cart-item {
+  height: 70px;
+
+  display: grid;
+  grid-template-columns: 200px 90px 90px 50px;
+  grid-template-rows: 1;
+
+  align-items: center;
+
+  box-shadow: 0px 4px 10px -10px rgba(0, 0, 0, 1);
+
+  .m-cart-item-name,
+  .m-cart-item-price {
+    padding-left: 10px;
+  }
+
+  .m-cart-item-quantity {
+    padding-left: 30px;
+  }
+}
+
+.m-cart-item-delete {
+  width: 30px;
+  height: 30px;
+
+  margin: auto;
+
+  background-image: url("../../icons/trash.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $Basepanel;
+
+  border: none;
+
+  outline: none;
+}

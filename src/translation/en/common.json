@@ -1,4 +1,12 @@
 {
+  "general": {
+    "cart": "Shopping Cart",
+    "item": "Item",
+    "quantity": "Quantity",
+    "price": "Price",
+    "tprice": "Total price",
+    "payment": "Proceed To Payment"
+  },
   "status": {
     "JAN": "JAN",
     "FEB": "FEB",
@@ -23,11 +31,16 @@
     "2": "AM",
     "3": "AM",
     "4": "PM",
-    "5": "PM"
+    "5": "PM",
+    "back": "Back"
   },
   "selectionpage": {
-    "helper": "Please Select Your Choice Of Medication",
-    "gsl": "General Sales List",
-    "presc": "Prescription"
+    "welcome": "Welcome,",
+    "helper": "What would you like to do today?",
+    "gsl": "Purchase general medication",
+    "presc": "Purchase prescription medication"
+  },
+  "getpresc": {
+    "qr": "Please scan the QR code found on your prescription."
   }
 }

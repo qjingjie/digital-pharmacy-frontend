@@ -1,35 +1,4 @@
-body {
-  touch-action: none; //disable zoom
-}
-
-.app_container {
-  width: 100vw;
-  height: 100vh;
-}
-
-.app_container2 {
-  width: inherit;
-  height: inherit;
-}
-
-.langswitch {
-  position: absolute;
-  width: 11vw;
-  bottom: 1vh;
-  text-align: center;
-  .ch_button,
-  .en_button {
-    width: 55px;
-    height: 55px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 22px;
-    color: #ffffff;
-    line-height: 22px;
-    letter-spacing: -0.015em;
-    border-radius: 50%;
-    margin-left: 5px;
-    margin-right: 5px;
-    outline: none;
-    background: #f79234;
-  }
-}
+@import "0-plugins/plugins-dir";
+@import "1-base/base-dir";
+@import "2-layouts/layout-dir";
+@import "3-modules/module-dir";

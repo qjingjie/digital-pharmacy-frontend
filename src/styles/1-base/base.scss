@@ -1,0 +1,24 @@
+$PrimaryFont: whitesmoke;
+
+header {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+
+  color: $PrimaryFont;
+}
+
+body {
+  touch-action: none; //disable zoom
+
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+
+  background-image: radial-gradient(
+    circle,
+    #006d87,
+    #00637f,
+    #005977,
+    #00506f,
+    #014666
+  );
+}

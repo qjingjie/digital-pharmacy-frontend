@@ -1,0 +1,115 @@
+$PrimaryFont: whitesmoke;
+$Gsl: #2e8b57;
+$Presc: #008faf;
+
+.m-welcome {
+  margin: 0px;
+
+  font-size: 64px;
+  font-weight: 600;
+  color: $PrimaryFont;
+}
+
+.m-helper {
+  margin: 0px;
+
+  font-size: 36px;
+  font-weight: normal;
+  color: $PrimaryFont;
+}
+
+.m-gsl-cta {
+  width: 44.75vw;
+
+  margin-left: 5vw;
+  margin-right: 0.5vw;
+
+  display: flex;
+  align-items: center;
+
+  button {
+    width: 100%;
+    height: 100%;
+
+    background-image: url("../../icons/gsl_icon.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 1vw center;
+
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.015em;
+    font-size: 36px;
+    font-weight: bold;
+    color: $Gsl;
+
+    padding-left: 25vw;
+
+    text-align: center;
+
+    margin: 0px auto;
+
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+
+    outline: none;
+  }
+}
+
+.m-presc-cta {
+  width: 44.75vw;
+
+  margin-right: 5vw;
+
+  display: flex;
+  align-items: center;
+
+  p {
+    position: absolute;
+    width: 220px;
+
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.015em;
+    font-size: 36px;
+    font-weight: bold;
+    color: $Presc;
+
+    text-align: center;
+
+    margin: 0px;
+    margin-left: 3vw;
+  }
+
+  img {
+    position: absolute;
+    height: 70%;
+    right: 0px;
+
+    margin-right: 7vw;
+  }
+  button {
+    width: 100%;
+    height: 100%;
+
+    background-image: url("../../icons/presc_icon.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 21vw center;
+
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.015em;
+    font-size: 36px;
+    font-weight: bold;
+    color: #008faf;
+
+    padding-right: 25vw;
+
+    text-align: center;
+
+    margin: 0px auto;
+
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+
+    outline: none;
+  }
+}
