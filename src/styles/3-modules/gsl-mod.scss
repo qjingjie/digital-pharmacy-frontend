@@ -13,38 +13,103 @@ $Basepanel: whitesmoke;
   text-align: center;
   font-size: 12px;
 
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(5px);
 
   border-radius: 10px;
   margin-top: 10px;
 
+  animation: sliding 0.4s ease-out 1;
+
+  div {
+    position: absolute;
+    height: 150px;
+    width: inherit;
+    top: calc((100vh - 220px) / 2);
+
+    text-align: center;
+  }
+
   p {
-    width: 45px;
-    height: 100px;
-    margin: calc((100vh - 160px) / 2) auto;
+    position: absolute;
+    width: 60px;
+    height: 50px;
+    top: 50px;
+    margin: 0px;
+  }
+
+  .m-sidebar-up {
+    position: absolute;
+    top: 0px;
+
+    display: block;
+    margin-left: 5px;
+    animation: pulse 3s ease-out infinite;
+  }
+
+  .m-sidebar-down {
+    position: absolute;
+    bottom: 0px;
+
+    display: block;
+    margin-left: 5px;
+    animation: pulse 3s linear infinite;
   }
 }
 
-.m-item-list {
-  position: absolute;
-  width: 430px;
-  height: 350px;
+@keyframes sliding {
+  from {
+    transform: translateX(-60px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
 
-  background-color: $PrimaryFont;
+.m-cart-list {
+  width: 450px;
+  height: 350px;
 
   padding: 0px;
 
   margin-left: 25px;
 
-  border-radius: 10px;
-
   overflow-y: scroll;
 }
 
-.m-item-list::-webkit-scrollbar {
+.m-cart-list::-webkit-scrollbar {
   display: none;
+}
+
+.m-cart-arrowdown,
+.m-cart-arrowup {
+  width: 450px;
+  height: 50px;
+
+  margin-left: 25px;
+
+  text-align: center;
+
+  img {
+    animation: pulse 3s ease-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .m-checkout-cta {
@@ -78,6 +143,12 @@ $Basepanel: whitesmoke;
   width: 200px;
   height: calc((100vh - 90px) / 3);
 
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: 20px 0px;
+
+  border-radius: 30px;
+
   outline: none;
 }
 
@@ -85,9 +156,14 @@ $Basepanel: whitesmoke;
   width: 760px;
   height: calc(100vh - 70px);
 
-  background-color: $Basepanel;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
 
   margin-left: 5px;
+
+  color: $PrimaryFont;
 
   border-radius: 10px;
 
@@ -114,7 +190,8 @@ $Basepanel: whitesmoke;
     background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: $Basepanel;
+
+    background-color: rgba(255, 255, 255, 0.1);
 
     border: none;
     border-top-right-radius: 10px;
@@ -137,7 +214,7 @@ $Basepanel: whitesmoke;
   .m-iteminfo-brand {
     grid-area: brand;
     font-size: 16px;
-    color: lighten($SecondaryFont, 60%);
+    color: darken($PrimaryFont, 10%);
   }
 
   .m-iteminfo-name {
@@ -174,10 +251,21 @@ $Basepanel: whitesmoke;
 
       margin: auto;
 
-      border-radius: 15px;
+      border-radius: 25px;
       font-size: 36px;
 
+      color: $PrimaryFont;
+
+      box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.35),
+        inset 0px 0px 3px 0px rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.1);
+
       outline: none;
+    }
+
+    .m-iteminfo-plus:active,
+    .m-iteminfo-minus:active {
+      background-color: $Orange;
     }
 
     .m-iteminfo-count {
@@ -190,7 +278,7 @@ $Basepanel: whitesmoke;
       text-align: center;
       vertical-align: middle;
       line-height: 50px;
-      background-color: lighten($SecondaryFont, 80%);
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
 
@@ -234,9 +322,12 @@ $Basepanel: whitesmoke;
   grid-template-columns: 200px 90px 90px 50px;
   grid-template-rows: 1;
 
+  color: $PrimaryFont;
+
   align-items: center;
 
   box-shadow: 0px 4px 10px -10px rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.1);
 
   .m-cart-item-name,
   .m-cart-item-price {
@@ -249,18 +340,34 @@ $Basepanel: whitesmoke;
 }
 
 .m-cart-item-delete {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 
   margin: auto;
 
-  background-image: url("../../icons/trash.png");
+  border-radius: 10px;
+
+  background: url("../../icons/delete.svg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: $Basepanel;
-
-  border: none;
 
   outline: none;
+}
+
+.m-cart-item-delete:active {
+  background-color: rgba(245, 245, 245, 0.8);
+}
+
+.m-error-prompt {
+  position: absolute;
+  width: 450px;
+  top: 300px;
+
+  text-align: center;
+  font-size: 36px;
+
+  color: $PrimaryFont;
+
+  margin-left: 25px;
 }

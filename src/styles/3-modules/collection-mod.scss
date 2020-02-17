@@ -1,0 +1,190 @@
+$PrimaryFont: whitesmoke;
+$Orange: #e79b25;
+
+.m-progress-bar {
+  position: absolute;
+  width: 600px;
+  height: 3em;
+  bottom: 250px;
+  left: calc((100vw - 600px) / 2);
+
+  border-radius: 1.5em;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+
+  color: $PrimaryFont;
+
+  p {
+    position: absolute;
+    top: 0.5em;
+    bottom: 0.5em;
+    left: 0.5em;
+
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+  }
+}
+
+.m-progress-bar:before {
+  content: " ";
+  position: absolute;
+  top: 0.5em;
+  bottom: 0.5em;
+  left: 0.5em;
+  width: calc(var(--width, 0) * 1%);
+  min-width: 2rem;
+  max-width: calc(100% - 1em);
+
+  background-color: green;
+  border-radius: 1em;
+}
+
+.m-rating-container {
+  position: absolute;
+  width: 500px;
+  height: 100px;
+  bottom: 350px;
+  left: calc((100vw - 500px) / 2);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  align-items: center;
+  direction: rtl;
+}
+
+.m-star-1,
+.m-star-2,
+.m-star-3,
+.m-star-4,
+.m-star-5 {
+  display: block;
+  margin: auto;
+}
+
+.m-star-1,
+.m-star-2,
+.m-star-3,
+.m-star-4 {
+  svg {
+    fill: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.m-star-5 {
+  svg {
+    fill: $Orange;
+    animation: poping 0.2s ease-in-out 0s 1;
+  }
+}
+
+.m-star-4 {
+  svg {
+    animation: poping 0.2s ease-in-out 0.2s 1;
+  }
+}
+
+.m-star-3 {
+  svg {
+    animation: poping 0.2s ease-in-out 0.4s 1;
+  }
+}
+
+.m-star-2 {
+  svg {
+    animation: poping 0.2s ease-in-out 0.6s 1;
+  }
+}
+
+.m-star-1 {
+  svg {
+    animation: poping 0.2s ease-in-out 0.8s 1;
+  }
+}
+
+@keyframes poping {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.m-star-1:hover svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-1:hover ~ .m-star-2 svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-1:hover ~ .m-star-3 svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-1:hover ~ .m-star-4 svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-1:hover ~ .m-star-5 svg {
+  transform: scale(1.2);
+}
+
+.m-star-2:hover svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-2:hover ~ .m-star-3 svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-2:hover ~ .m-star-4 svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-2:hover ~ .m-star-5 svg {
+  transform: scale(1.2);
+}
+
+.m-star-3:hover svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-3:hover ~ .m-star-4 svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-3:hover ~ .m-star-5 svg {
+  transform: scale(1.2);
+}
+
+.m-star-4:hover svg {
+  fill: $Orange;
+  transform: scale(1.2);
+}
+
+.m-star-4:hover ~ .m-star-5 svg {
+  transform: scale(1.2);
+}
+
+.m-star-5:hover svg {
+  transform: scale(1.2);
+}

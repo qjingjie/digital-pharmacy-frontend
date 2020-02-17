@@ -1,0 +1,76 @@
+$PrimaryFont: whitesmoke;
+
+.m-react-player {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  margin-top: 30px;
+  margin-left: calc((100vw - 1200px) / 3);
+}
+
+.m-qr-text {
+  width: 600px;
+
+  font-size: 28px;
+  color: $PrimaryFont;
+  margin-top: 20px;
+}
+.m-qrcode {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: 0px;
+  left: 0px;
+
+  margin-bottom: 150px;
+  margin-left: 150px;
+}
+
+.m-scan-line {
+  position: absolute;
+  width: 360px;
+  top: 150px;
+  left: 0px;
+
+  margin-left: 120px;
+
+  animation: scan 2.5s ease-in-out infinite;
+}
+
+@keyframes scan {
+  from {
+    transform: translate3d(0, 0px, 0);
+  }
+  to {
+    transform: translate3d(0px, 280px, 0);
+  }
+}
+
+.m-title-2fa {
+  position: absolute;
+  width: 80%;
+  top: 20px;
+  left: 10%;
+
+  font-size: 22px;
+  color: $PrimaryFont;
+}
+
+.m-error-2fa {
+  position: absolute;
+  width: 100%;
+  top: 90px;
+
+  font-size: 14px;
+  color: red;
+}
+
+.m-counter-2fa {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+
+  font-size: 20px;
+  color: $PrimaryFont;
+}

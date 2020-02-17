@@ -1,0 +1,124 @@
+$PrimaryFont: whitesmoke;
+$Orange: #e79b25;
+
+.l-inventory-list {
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  bottom: 0px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.l-inventory-list::-webkit-scrollbar {
+  display: none;
+}
+
+.l-inventory {
+  width: 100px;
+  height: 200px;
+
+  overflow: hidden;
+
+  margin: auto;
+}
+
+.l-management-base {
+  position: absolute;
+  width: 90vw;
+  height: calc(100vh - 60px);
+
+  border-radius: 10px;
+  margin-left: 5vw;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  align-items: center;
+
+  p {
+    width: 100%;
+    color: $PrimaryFont;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .l-management-addinventory {
+    position: absolute;
+    top: 20px;
+    max-width: 100%;
+
+    color: $PrimaryFont;
+    text-align: left;
+    font-size: 30px;
+    padding-left: 20px;
+  }
+}
+
+.l-stock-text {
+  position: absolute;
+  width: 50%;
+  bottom: 40%;
+  left: 0px;
+}
+
+.l-stock-container {
+  position: absolute;
+  width: 600px;
+  height: 100px;
+  bottom: 30%;
+  left: calc((100% - 600px) / 2);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+
+  div {
+    width: 180px;
+    height: 100px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+
+    border-radius: 10px;
+
+    display: flex;
+    margin: auto;
+
+    align-items: center;
+    overflow: hidden;
+
+    p {
+      font-size: 40px;
+      margin: 0;
+    }
+  }
+
+  button {
+    margin: auto;
+    width: 90px;
+    height: 90px;
+
+    border-radius: 45px;
+    font-size: 36px;
+
+    color: $PrimaryFont;
+
+    box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.35),
+      inset 0px 0px 3px 0px rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.1);
+
+    outline: none;
+  }
+
+  button:active {
+    background-color: $Orange;
+  }
+}

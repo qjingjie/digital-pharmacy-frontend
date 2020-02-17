@@ -1,11 +1,22 @@
 {
   "general": {
     "cart": "购物车",
+    "brand": "品牌",
     "item": "物品",
     "quantity": "数量",
     "price": "价钱",
+    "subtotal": "小计",
     "tprice": "总价",
-    "payment": "结帐"
+    "payment": "结帐",
+    "stock": "库存",
+    "availstock": "剩余库存",
+    "description": "描述",
+    "add": "添加到购物车",
+    "empty": "购物车是空的",
+    "timeout": "秒后超时。",
+    "update_stock": "更新库存",
+    "update_exit": "更新并退出",
+    "exiting": "正在更新数据库...并退出..."
   },
   "status": {
     "JAN": "一月",
@@ -32,15 +43,32 @@
     "3": "(上午)",
     "4": "(下午)",
     "5": "(晚上)",
-    "back": "退"
+    "back": "退",
+    "more": "更多可供选择项目"
   },
   "selectionpage": {
     "welcome": "你好,",
-    "helper": "你今天想要做什么?",
+    "helper": "您今天想要做什么?",
     "gsl": "购买一般销售清单药物",
     "presc": "购买处方药物"
   },
   "getpresc": {
-    "qr": "请扫描您处方上的二维码。"
+    "qr": "请扫描您处方上的二维码。",
+    "helper2fa": "请输入发送到您的注册电子邮件的2FA代码。",
+    "incorrect": "您输入的代码不正确，请重试。"
+  },
+  "selpay": {
+    "helper": "请选择付款方式"
+  },
+  "payment": {
+    "wait": "等待付款当中...",
+    "success": "交易成功!"
+  },
+  "collection": {
+    "inprogress": "收集中。。。",
+    "complete": "收集完成。",
+    "wait": "正在收集您的购买商品，请稍候。",
+    "thank": "感谢您使用我们的服务!",
+    "rate": "请花点时间给我们评分"
   }
 }

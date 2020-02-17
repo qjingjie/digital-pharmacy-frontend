@@ -1,0 +1,41 @@
+$PrimaryFont: whitesmoke;
+
+.m-payment-text {
+  margin-top: 20px;
+
+  font-size: 38px;
+  font-weight: 600;
+  color: $PrimaryFont;
+}
+
+.m-payment-price {
+  margin-top: 30px;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 28px;
+  font-weight: normal;
+  color: $PrimaryFont;
+}
+
+.m-payment-container {
+  height: 250px;
+
+  margin-top: 70px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.m-payment-1,
+.m-payment-2,
+.m-payment-3,
+.m-payment-4 {
+  height: 210px;
+  width: calc((100vw / 4) - 40px);
+  margin: 20px;
+
+  border-radius: 10px;
+  border: none;
+
+  outline: none;
+}

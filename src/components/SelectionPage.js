@@ -1,16 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import { Redirect } from "react-router";
 import { withTranslation } from "react-i18next";
-import FwdBtn from "./FwdBtn";
-import "../styles/app.scss";
+import RouteBtn from "./RouteBtn";
 
-class SelectionPage extends React.Component {
+class SelectionPage extends Component {
   state = {
     redirect: false
   };
 
   componentDidMount() {
     this.id = setTimeout(() => this.setState({ redirect: true }), 18000000000); // Redirects to landing page after 3mins on inactivity
+    this.props.updateCart([], 0.0);
   }
 
   componentWillUnmount() {
@@ -30,11 +30,11 @@ class SelectionPage extends React.Component {
 
         <div className="l-btn-container">
           <div className="m-gsl-cta">
-            <FwdBtn path="/gsl" text={this.props.t("selectionpage.gsl")} />
+            <RouteBtn path="/gsl" text={this.props.t("selectionpage.gsl")} />
           </div>
 
           <div className="m-presc-cta">
-            <FwdBtn
+            <RouteBtn
               path="/getpresc"
               text={this.props.t("selectionpage.presc")}
             />

@@ -1,26 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 import BackBtn from "./BackBtn";
-import "../styles/app.scss";
 
 const monthNames = [
-  "JAN",
-  "FEB",
-  "MAR",
-  "APR",
-  "MAY",
-  "JUN",
-  "JUL",
-  "AUG",
-  "SEP",
-  "OCT",
-  "NOV",
-  "DEC"
+  "/ 1 /",
+  "/ 2 /",
+  "/ 3 /",
+  "/ 4 /",
+  "/ 5 /",
+  "/ 6 /",
+  "/ 7 /",
+  "/ 8 /",
+  "/ 9 /",
+  "/ 10 /",
+  "/ 11 /",
+  "/ 12 /"
 ];
 
 const dayNames = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
-class StatusBar extends React.Component {
+class StatusBar extends Component {
   constructor(props) {
     super(props);
 
@@ -44,10 +43,12 @@ class StatusBar extends React.Component {
     minutes = ("0" + minutes).slice(-2);
 
     this.state = {
-      month: "status.".concat(monthNames[date.getMonth()]),
+      month: monthNames[date.getMonth()],
       date: date.getDate(),
       year: date.getFullYear(),
-      day: "status.".concat(dayNames[date.getDay() - 1]),
+      day: "status.".concat(
+        dayNames[date.getDay() === 0 ? 6 : date.getDay() - 1]
+      ),
       hour: hours,
       minute: minutes,
       am_pm: "status.".concat(ampm),
@@ -87,10 +88,12 @@ class StatusBar extends React.Component {
     minutes = ("0" + minutes).slice(-2);
 
     this.setState({
-      month: "status.".concat(monthNames[date.getMonth()]),
+      month: monthNames[date.getMonth()],
       date: date.getDate(),
       year: date.getFullYear(),
-      day: "status.".concat(dayNames[date.getDay() - 1]),
+      day: "status.".concat(
+        dayNames[date.getDay() === 0 ? 6 : date.getDay() - 1]
+      ),
       hour: hours,
       minute: minutes,
       am_pm: "status.".concat(ampm)
@@ -117,7 +120,11 @@ class StatusBar extends React.Component {
     return (
       <header>
         <BackBtn name="m-back" text={this.props.t("status.back")} />
-        <button className="m-langswitch" onClick={this.handleClick}>
+        <button
+          className="m-langswitch"
+          type="button"
+          onClick={this.handleClick}
+        >
           {this.state.lang_dis}
         </button>
         <div className="m-clk">

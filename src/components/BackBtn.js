@@ -1,5 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+
+// ------------------------------ BackBtn --------------------------------
+// Creates a button that returns to the previous page
+// -------------------------------- Props --------------------------------
+// -classname       -> className
+// -text            -> Text to be displayed
+// -----------------------------------------------------------------------
 
 const BackIcon = () => (
   <div className="back-icon">
@@ -15,7 +22,7 @@ const BackIcon = () => (
         y1="1.23744"
         x2="1.75962"
         y2="21.7153"
-        stroke="#ffffff"
+        stroke="#F5F5F5"
         strokeWidth="3.5"
       />
       <line
@@ -23,14 +30,14 @@ const BackIcon = () => (
         y1="39.7152"
         x2="1.76256"
         y2="19.2374"
-        stroke="#ffffff"
+        stroke="#F5F5F5"
         strokeWidth="3.5"
       />
     </svg>
   </div>
 );
 
-class BackBtn extends React.Component {
+class BackBtn extends Component {
   constructor(props) {
     super(props);
     this.routeBack = this.routeBack.bind(this);

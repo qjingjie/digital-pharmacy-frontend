@@ -13,12 +13,9 @@ body {
   font-family: "Montserrat", sans-serif;
   letter-spacing: -0.015em;
 
-  background-image: radial-gradient(
-    circle,
-    #006d87,
-    #00637f,
-    #005977,
-    #00506f,
-    #014666
-  );
+  background-image: url("../../img/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }

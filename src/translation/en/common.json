@@ -1,11 +1,22 @@
 {
   "general": {
     "cart": "Shopping Cart",
+    "brand": "Brand",
     "item": "Item",
     "quantity": "Quantity",
     "price": "Price",
-    "tprice": "Total price",
-    "payment": "Proceed To Payment"
+    "subtotal": "Subtotal",
+    "tprice": "Total Price",
+    "payment": "Proceed To Payment",
+    "stock": "Stock",
+    "availstock": "Available Stock",
+    "description": "Description",
+    "add": "Add To Cart",
+    "empty": "Cart Is Empty",
+    "timeout": "seconds before timeout.",
+    "update_stock": "Update Stock",
+    "update_exit": "Update and Exit",
+    "exiting": "Updating database...and exiting..."
   },
   "status": {
     "JAN": "JAN",
@@ -32,7 +43,8 @@
     "3": "AM",
     "4": "PM",
     "5": "PM",
-    "back": "Back"
+    "back": "Back",
+    "more": "More Items Avail."
   },
   "selectionpage": {
     "welcome": "Welcome,",
@@ -41,6 +53,22 @@
     "presc": "Purchase prescription medication"
   },
   "getpresc": {
-    "qr": "Please scan the QR code found on your prescription."
+    "qr": "Please scan the QR code found on your prescription.",
+    "helper2fa": "Please enter the 2FA code sent to your registered email.",
+    "incorrect": "The code that you have entered is incorrect, please try again."
+  },
+  "selpay": {
+    "helper": "Please Select A Payment Option"
+  },
+  "payment": {
+    "wait": "Awaiting Payment...",
+    "success": "Transaction Successful!"
+  },
+  "collection": {
+    "inprogress": "Collection in progress...",
+    "complete": "Collection completed.",
+    "wait": "Please wait while your purchase is being collected.",
+    "thank": "Thank you for using our service!",
+    "rate": "Please spent a moment to rate us!"
   }
 }

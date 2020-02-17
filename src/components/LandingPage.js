@@ -1,8 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import FwdBtn from "./FwdBtn";
-import "../styles/app.scss";
+import RouteBtn from "./RouteBtn";
 
 const PointerIcon = () => (
   <div className="ptr-icon">
@@ -22,7 +21,11 @@ const PointerIcon = () => (
   </div>
 );
 
-class LandingPage extends React.Component {
+class LandingPage extends Component {
+  componentDidMount() {
+    this.props.updateCart([], 0.0);
+  }
+
   render() {
     const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -30,7 +33,7 @@ class LandingPage extends React.Component {
       <div className="l-app">
         <AutoPlaySwipeableViews
           className="l-images"
-          interval={parseInt("15000")}
+          interval={parseInt("15000")} // Time interval between each image
         >
           <div className="m-imgA" />
           <div className="m-imgB" />
@@ -40,7 +43,7 @@ class LandingPage extends React.Component {
           <p> Touch Anywhere To Begin </p>
           <PointerIcon />
         </div>
-        <FwdBtn path="/selectionpage" name="m-hidden-btn" />
+        <RouteBtn classname="m-hidden-btn" path="/selectionpage" />
       </div>
     );
   }
