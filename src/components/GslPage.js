@@ -30,7 +30,7 @@ function ItemInfo(props) {
         type="button"
         onClick={props.handleClose}
       ></button>
-      <span className="m-iteminfo-brand">Brand</span>
+      <span className="m-iteminfo-brand">{props.brand}</span>
       <span className="m-iteminfo-name">{props.name}</span>
       <span className="m-iteminfo-price">
         {props.t("general.price")}: ${props.price} ea
@@ -161,6 +161,7 @@ class GslPage extends Component {
 
       // For ItemInfo
       item_id: "",
+      item_brand: "",
       item_name: "",
       subtotal: 0.0,
       item_price: 0,
@@ -185,7 +186,7 @@ class GslPage extends Component {
   componentDidMount() {
     this.id = setTimeout(() => this.setState({ redirect: true }), 1800000000);
 
-    fetch("/OTCMedicine")
+    fetch("/OTCMedicine/")
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -206,6 +207,7 @@ class GslPage extends Component {
         this.setState({
           selected: true,
           item_id: identifier,
+          item_brand: this.state.items.medicines[i].brand,
           item_name: this.state.items.medicines[i].name,
           subtotal: parseFloat(this.state.items.medicines[i].cost),
           item_price: parseFloat(this.state.items.medicines[i].cost),
@@ -385,6 +387,7 @@ class GslPage extends Component {
           <div className="l-iteminfo">
             <ItemInfoWithTrans
               name={this.state.item_name}
+              brand={this.state.item_brand}
               id={this.state.selected_id}
               price={this.state.item_price}
               subtotal={this.state.subtotal}
@@ -405,7 +408,7 @@ class GslPage extends Component {
               <ItemCTAWithTrans
                 key={item.name}
                 name={item.name}
-                stock={item.qty}
+                stock={item.stock}
                 price={parseFloat(item.cost)}
                 img={item.pic}
                 handleClick={() => this.handleClick(item.id)}

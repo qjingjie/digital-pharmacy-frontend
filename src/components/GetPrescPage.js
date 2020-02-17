@@ -9,13 +9,7 @@ import test from "../video/test1.mp4";
 
 class AwaitQR extends Component {
   componentDidMount() {
-    this.interval = setInterval(() => {
-      this.props.handle();
-    }, 2000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
+    this.props.handle();
   }
 
   render() {

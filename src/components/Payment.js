@@ -22,15 +22,6 @@ class Payment extends Component {
   componentWillUnmount() {
     clearTimeout(this.id);
     clearTimeout(this.next);
-
-    var jsonOut = { cart: this.props.cartMem, transactionPass: false };
-
-    // Send cart items to backend server
-    fetch("/updateDBOTC", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(jsonOut)
-    });
   }
 
   handleTransaction(newstate) {

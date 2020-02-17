@@ -92,20 +92,15 @@ class App extends Component {
                   <LandingPage {...props0} updateCart={this.updateCart} />
                 )}
               />
-              <Route
-                exact
-                path="/payment"
-                render={props4 => (
-                  <Payment {...this.props4} cartMem={this.state.cart} />
-                )}
-              />
+              <Route exact path="/payment" component={Payment} />
               <Route
                 exact
                 path="/collection"
-                render={props5 => (
+                render={props4 => (
                   <Collection
-                    {...this.props5}
+                    {...this.props4}
                     item_count={this.state.item_count}
+                    cartMem={this.state.cart}
                   />
                 )}
               />

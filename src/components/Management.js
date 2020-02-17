@@ -137,7 +137,7 @@ class Management extends Component {
   }
 
   componentDidMount() {
-    fetch("/OTCMedicine")
+    fetch("/management/")
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -194,10 +194,10 @@ class Management extends Component {
 
   handleExit() {
     this.setState({ onExit: true });
-    var jsonOut = { updated_cart: this.state.updated_cart };
+    var jsonOut = this.state.updated_cart;
 
     // Send cart items to backend server
-    fetch("/updateDBOTC", {
+    fetch("/updatemanagementdb/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(jsonOut)

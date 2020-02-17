@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
+import { withRouter } from "react-router-dom";
 
 const Star = props => (
   <div className={props.classname}>
@@ -33,11 +34,28 @@ class Collection extends Component {
   }
 
   componentDidMount() {
+    var jsonOut = { cart: this.props.cartMem };
+
+    // Send cart items to backend server
+    fetch("/updateDBOTC", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jsonOut)
+    }).then(response =>
+      response.json().then(data => {
+        if (data === "Done") {
+          this.setState({ compeleted: true });
+        }
+      })
+    );
+
     var bar_interval = (this.props.item_count * 8000) / 98;
     this.interval = setInterval(() => {
-      this.state.progress >= 98 || this.state.compeleted
+      this.state.compeleted
         ? this.setState({ progress: 100 })
-        : this.setState(state => ({ progress: state.progress + 1 }));
+        : this.state.progress <= 98
+        ? this.setState(state => ({ progress: state.progress + 1 }))
+        : this.setState({ progress: 98 });
     }, bar_interval);
   }
 
@@ -45,6 +63,9 @@ class Collection extends Component {
     clearInterval(this.interval);
   }
   render() {
+    if (this.state.progress === 100) {
+      this.next = setTimeout(() => this.props.history.push("/"), 500);
+    }
     return (
       <div>
         {this.state.progress === 100 ? (
@@ -78,4 +99,4 @@ class Collection extends Component {
   }
 }
 
-export default withTranslation("common")(Collection);
+export default withRouter(withTranslation("common")(Collection));
