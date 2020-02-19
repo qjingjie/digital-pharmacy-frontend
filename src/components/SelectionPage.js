@@ -14,10 +14,13 @@ class SelectionPage extends Component {
       900000
     ); // set 15 mins page timeout
     this.props.updateCart([], 0.0);
+
+    fetch("/startingpage/");
   }
 
   componentWillUnmount() {
     clearTimeout(this.page_timeout);
+    fetch("/flushqr/");
   }
 
   render() {

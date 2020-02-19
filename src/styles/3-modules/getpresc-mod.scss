@@ -12,7 +12,7 @@ $PrimaryFont: whitesmoke;
 .m-qr-text {
   width: 600px;
 
-  font-size: 28px;
+  font-size: 24px;
   color: $PrimaryFont;
   margin-top: 20px;
 }
@@ -35,7 +35,7 @@ $PrimaryFont: whitesmoke;
 
   margin-left: 120px;
 
-  animation: scan 2.5s ease-in-out infinite;
+  //  animation: scan 2.5s ease-in-out infinite;
 }
 
 @keyframes scan {
@@ -53,7 +53,7 @@ $PrimaryFont: whitesmoke;
   top: 20px;
   left: 10%;
 
-  font-size: 22px;
+  font-size: 24px;
   color: $PrimaryFont;
 }
 
@@ -62,7 +62,7 @@ $PrimaryFont: whitesmoke;
   width: 100%;
   top: 90px;
 
-  font-size: 14px;
+  font-size: 16px;
   color: red;
 }
 
@@ -71,6 +71,6 @@ $PrimaryFont: whitesmoke;
   width: 100%;
   bottom: 10px;
 
-  font-size: 20px;
+  font-size: 16px;
   color: $PrimaryFont;
 }

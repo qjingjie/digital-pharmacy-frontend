@@ -36,11 +36,15 @@ class SelPay extends Component {
               classname="m-payment-1"
               path="/payment"
               text={this.props.t("selpay.credit")}
+              payment="True"
+              updatePayment={() => this.props.updatePayment("credit")}
             />
             <RouteBtn
               classname="m-payment-2"
               path="/payment"
               text={this.props.t("selpay.qr")}
+              payment="True"
+              updatePayment={() => this.props.updatePayment("qr")}
             />
           </div>
         </div>

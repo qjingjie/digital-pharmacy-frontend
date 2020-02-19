@@ -67,6 +67,7 @@ function ItemInfo(props) {
         className="m-iteminfo-addtocart"
         type="button"
         onClick={props.handleAddToCart}
+        disabled={props.stock === "0" ? true : false}
       >
         {props.t("general.add")}
       </button>
@@ -83,13 +84,15 @@ function ItemCTA(props) {
         type="button"
         onClick={props.handleClick}
       >
-        <span>{props.name}</span>
-        <br />
-        <span>
-          {props.t("general.stock")}:{props.stock}
-        </span>
-        <br />
-        <span>${props.price}</span>
+        <p className="m-item-cta-name">{props.name}</p>
+        <p className="m-item-cta-stock">{props.t("general.stock")}:</p>
+        <p
+          className="m-item-cta-stock-qty"
+          style={{ color: props.stock === "0" ? "red" : "green" }}
+        >
+          {props.stock}
+        </p>
+        <p className="m-item-cta-price">${props.price}</p>
       </button>
     </div>
   );

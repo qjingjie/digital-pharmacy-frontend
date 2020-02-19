@@ -44,7 +44,13 @@ function WithStatusBar(props) {
         <Route
           exact
           path="/selectpayment"
-          render={props3 => <SelPay {...props3} tpriceMem={props.tpriceMem} />}
+          render={props3 => (
+            <SelPay
+              {...props3}
+              tpriceMem={props.tpriceMem}
+              updatePayment={props.updatePayment}
+            />
+          )}
         />
       </Switch>
     </div>
@@ -57,10 +63,12 @@ class App extends Component {
     this.state = {
       cart: [], // update this cart to transfer data between pages
       tprice: 0.0, // update this cart to transfer data between pages
-      item_count: 0
+      item_count: 0,
+      payment_option: null
     };
 
     this.updateCart = this.updateCart.bind(this);
+    this.updatePayment = this.updatePayment.bind(this);
   }
 
   updateCart(newCart, newPrice) {
@@ -78,6 +86,10 @@ class App extends Component {
     this.setState({ cart: newCart, tprice: newPrice, item_count: item_count });
   }
 
+  updatePayment(payment_option) {
+    this.setState({ payment_option: payment_option });
+  }
+
   render() {
     const { i18n } = this.props;
     return (
@@ -92,13 +104,22 @@ class App extends Component {
                   <LandingPage {...props0} updateCart={this.updateCart} />
                 )}
               />
-              <Route exact path="/payment" component={Payment} />
+              <Route
+                exact
+                path="/payment"
+                render={props4 => (
+                  <Payment
+                    {...props4}
+                    paymentOption={this.state.payment_option}
+                  />
+                )}
+              />
               <Route
                 exact
                 path="/collection"
-                render={props4 => (
+                render={props5 => (
                   <Collection
-                    {...this.props4}
+                    {...props5}
                     item_count={this.state.item_count}
                     cartMem={this.state.cart}
                   />
@@ -112,6 +133,7 @@ class App extends Component {
                     updateCart={this.updateCart}
                     cartMem={this.state.cart}
                     tpriceMem={this.state.tprice}
+                    updatePayment={this.updatePayment}
                   />
                 )}
               />

@@ -37,7 +37,7 @@ class Collection extends Component {
     var jsonOut = { cart: this.props.cartMem };
 
     // Send cart items to backend server
-    fetch("/updateDBOTC", {
+    fetch("/updateDBOTC/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(jsonOut)

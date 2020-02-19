@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router";
 import { withRouter } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 
@@ -147,6 +146,10 @@ class Management extends Component {
       }); // Fetch current cart data from backend
   }
 
+  componentWillUnmount() {
+    fetch("/flushqr/");
+  }
+
   handleClick(identifier) {
     var i;
     for (i = 0; i < this.state.updated_cart.medicines.length; i++) {
@@ -197,7 +200,7 @@ class Management extends Component {
     var jsonOut = this.state.updated_cart;
 
     // Send cart items to backend server
-    fetch("/updatemanagementdb/", {
+    fetch("/updatemaindb/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(jsonOut)
@@ -231,7 +234,7 @@ class Management extends Component {
                   <InventorySlotWithTrans
                     key={item.name}
                     id={item.id}
-                    brand="test"
+                    brand={item.brand}
                     name={item.name}
                     stock={parseInt(item.stock)}
                     handleClick={() => this.handleClick(item.id)}

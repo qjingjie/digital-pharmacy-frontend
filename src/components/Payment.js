@@ -20,15 +20,18 @@ class Payment extends Component {
       60000
     ); // Redirects to payment selection page after 1min on inactivity
 
-    var jsonOut = this.state.transactionPass;
+    var jsonOut = {
+      transactionPass: this.state.transactionPass,
+      payment_option: this.props.paymentOption
+    };
 
-    fetch("/paymentOTC", {
+    fetch("/paymentOTC/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(jsonOut)
     }).then(response =>
       response.json().then(data => {
-        if (data === "true") {
+        if (data === "True") {
           this.setState({ transactionPass: true });
         } else {
           setTimeout(() => this.setState({ payment_error: true }), 3000);

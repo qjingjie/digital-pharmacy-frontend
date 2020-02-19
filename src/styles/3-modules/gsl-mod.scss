@@ -46,7 +46,7 @@ $Basepanel: whitesmoke;
 
     display: block;
     margin-left: 5px;
-    animation: pulse 3s ease-out infinite;
+    // animation: pulse 3s ease-out infinite;
   }
 
   .m-sidebar-down {
@@ -55,7 +55,7 @@ $Basepanel: whitesmoke;
 
     display: block;
     margin-left: 5px;
-    animation: pulse 3s linear infinite;
+    // animation: pulse 3s linear infinite;
   }
 }
 
@@ -93,7 +93,7 @@ $Basepanel: whitesmoke;
   text-align: center;
 
   img {
-    animation: pulse 3s ease-out infinite;
+    // animation: pulse 3s ease-out infinite;
   }
 }
 
@@ -148,6 +148,11 @@ $Basepanel: whitesmoke;
   background-position: 20px 0px;
 
   border-radius: 30px;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
 
   outline: none;
 }
@@ -207,6 +212,10 @@ $Basepanel: whitesmoke;
     grid-area: img;
     background-color: $Orange;
     margin: 10px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
 
     border-radius: 10px;
   }
@@ -286,7 +295,7 @@ $Basepanel: whitesmoke;
     grid-area: subtotal;
     margin: auto 25px;
 
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .m-iteminfo-addtocart {
@@ -312,6 +321,10 @@ $Basepanel: whitesmoke;
   .m-iteminfo-addtocart:active {
     background-color: darken($Orange, 10%);
     color: darken($PrimaryFont, 10%);
+  }
+
+  .m-iteminfo-addtocart:disabled {
+    background-color: lighten($Orange, 20%);
   }
 }
 
@@ -370,4 +383,46 @@ $Basepanel: whitesmoke;
   color: $PrimaryFont;
 
   margin-left: 25px;
+}
+
+.m-item-cta-name {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 100%;
+
+  font-size: 16px;
+  color: $PrimaryFont;
+}
+
+.m-item-cta-stock {
+  position: absolute;
+  bottom: 0px;
+  left: 8%;
+  margin-bottom: 10px;
+
+  font-size: 16px;
+  color: $PrimaryFont;
+}
+
+.m-item-cta-stock-qty {
+  position: absolute;
+  bottom: 0px;
+  left: 33%;
+  margin-bottom: 8px;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.m-item-cta-price {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 92%;
+  margin-bottom: 10px;
+
+  font-size: 24px;
+  text-align: right;
+  color: $PrimaryFont;
 }

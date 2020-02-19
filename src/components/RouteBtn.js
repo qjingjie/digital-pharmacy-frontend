@@ -9,6 +9,9 @@ import { withRouter } from "react-router-dom";
 // -path            -> path to be routed to
 // -chkCart         -> True if cart has to be checked for emptiness
 // -tprice          -> Total price of cart items (Required if chkCart = True)
+// -payment         -> True if button used for payment selection
+// -updatePayment   -> for updating payment option (Required if payment = True)
+
 // -handleEmpty     -> Handle cart emptiness
 // -text            -> Text to be displayed
 // ----------------------------------------------------------------------------
@@ -28,8 +31,14 @@ class RouteBtn extends Component {
         this.props.history.push(path);
       }
     } else {
-      let path = this.props.path;
-      this.props.history.push(path);
+      if (this.props.payment === "True") {
+        this.props.updatePayment();
+        let path = this.props.path;
+        this.props.history.push(path);
+      } else {
+        let path = this.props.path;
+        this.props.history.push(path);
+      }
     }
   }
 

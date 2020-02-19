@@ -6,6 +6,7 @@ import React, { Component } from "react";
 // -classname       -> className
 // -initialCount    -> Initial count of the counter
 // -interval        -> Counting interval
+// -dispcount       -> Display count
 // -text            -> Text to be displayed
 // -----------------------------------------------------------------------
 

@@ -21,11 +21,11 @@ class AwaitQR extends Component {
           src={require("../img/qr_code.png")}
           alt="qr"
         />
-        <img
+        {/*<img
           className="m-scan-line"
           src={require("../icons/scan-line.svg")}
           alt="scanline"
-        />
+        >*</img>*/}
       </div>
     );
   }
@@ -47,10 +47,12 @@ class Await2FA extends Component {
       () => this.props.handleTimeout(),
       parseInt(this.props.timeout)
     );
+    fetch("/securitycode/");
   }
 
   componentWillUnmount() {
     clearTimeout(this.timeout);
+    fetch("/flushqr/");
   }
 
   submit2FA(code) {
@@ -91,6 +93,7 @@ class Await2FA extends Component {
           initialCount={this.props.timeoutSec}
           interval="1000"
           text={this.props.timeoutText}
+          dispcount="True"
         />
       </div>
     );
@@ -162,7 +165,7 @@ class GetPrescPage extends Component {
         ) : (
           <AwaitQR text={this.props.t("getpresc.qr")} handle={this.chkQR} />
         )}
-        <ReactPlayer
+        {/*<ReactPlayer
           className="m-react-player"
           url={test}
           playing
@@ -170,7 +173,7 @@ class GetPrescPage extends Component {
           muted
           width="600px"
           height="600px"
-        />
+        />*/}
       </div>
     );
   }
