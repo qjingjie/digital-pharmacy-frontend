@@ -1,5 +1,4 @@
 $PrimaryFont: whitesmoke;
-$Orange: #e79b25;
 
 .m-progress-bar {
   position: absolute;
@@ -53,7 +52,6 @@ $Orange: #e79b25;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
   align-items: center;
-  direction: rtl;
 }
 
 .m-star-1,
@@ -65,23 +63,13 @@ $Orange: #e79b25;
   margin: auto;
 }
 
-.m-star-1,
-.m-star-2,
-.m-star-3,
-.m-star-4 {
+.m-star-1 {
   svg {
-    fill: rgba(255, 255, 255, 0.25);
-  }
-}
-
-.m-star-5 {
-  svg {
-    fill: $Orange;
     animation: poping 0.2s ease-in-out 0s 1;
   }
 }
 
-.m-star-4 {
+.m-star-2 {
   svg {
     animation: poping 0.2s ease-in-out 0.2s 1;
   }
@@ -93,13 +81,13 @@ $Orange: #e79b25;
   }
 }
 
-.m-star-2 {
+.m-star-4 {
   svg {
     animation: poping 0.2s ease-in-out 0.6s 1;
   }
 }
 
-.m-star-1 {
+.m-star-5 {
   svg {
     animation: poping 0.2s ease-in-out 0.8s 1;
   }
@@ -111,7 +99,7 @@ $Orange: #e79b25;
   }
 
   50% {
-    transform: scale(2);
+    transform: scale(1.2);
   }
 
   100% {
@@ -119,72 +107,44 @@ $Orange: #e79b25;
   }
 }
 
-.m-star-1:hover svg {
-  fill: $Orange;
-  transform: scale(1.2);
+.m-heading-inprogress {
+  width: 100vw;
+
+  text-align: center;
+
+  margin-top: 200px;
+  font-size: 36px;
+  color: $PrimaryFont;
+  font-weight: bold;
 }
 
-.m-star-1:hover ~ .m-star-2 svg {
-  fill: $Orange;
-  transform: scale(1.2);
+.m-heading-completed-tk {
+  width: 100vw;
+
+  text-align: center;
+
+  font-size: 36px;
+  color: $PrimaryFont;
+  font-weight: bold;
+  margin-top: 90px;
 }
 
-.m-star-1:hover ~ .m-star-3 svg {
-  fill: $Orange;
-  transform: scale(1.2);
+.m-heading-completed-rate {
+  width: 100vw;
+
+  text-align: center;
+
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+  color: $PrimaryFont;
 }
 
-.m-star-1:hover ~ .m-star-4 svg {
-  fill: $Orange;
-  transform: scale(1.2);
-}
+.m-rated {
+  width: 100vw;
 
-.m-star-1:hover ~ .m-star-5 svg {
-  transform: scale(1.2);
-}
+  text-align: center;
 
-.m-star-2:hover svg {
-  fill: $Orange;
-  transform: scale(1.2);
-}
-
-.m-star-2:hover ~ .m-star-3 svg {
-  fill: $Orange;
-  transform: scale(1.2);
-}
-
-.m-star-2:hover ~ .m-star-4 svg {
-  fill: $Orange;
-  transform: scale(1.2);
-}
-
-.m-star-2:hover ~ .m-star-5 svg {
-  transform: scale(1.2);
-}
-
-.m-star-3:hover svg {
-  fill: $Orange;
-  transform: scale(1.2);
-}
-
-.m-star-3:hover ~ .m-star-4 svg {
-  fill: $Orange;
-  transform: scale(1.2);
-}
-
-.m-star-3:hover ~ .m-star-5 svg {
-  transform: scale(1.2);
-}
-
-.m-star-4:hover svg {
-  fill: $Orange;
-  transform: scale(1.2);
-}
-
-.m-star-4:hover ~ .m-star-5 svg {
-  transform: scale(1.2);
-}
-
-.m-star-5:hover svg {
-  transform: scale(1.2);
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  color: $PrimaryFont;
 }

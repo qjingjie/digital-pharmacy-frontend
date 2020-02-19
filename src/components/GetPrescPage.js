@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 import { withRouter } from "react-router-dom";
 import { Redirect } from "react-router";
-import ReactPlayer from "react-player";
+//import ReactPlayer from "react-player";
 import CdCounter from "../components/CdCounter";
 import NumKeyboard2FA from "../components/NumKeyboard2FA";
 import test from "../video/test1.mp4";

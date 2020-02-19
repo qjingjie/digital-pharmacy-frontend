@@ -69,8 +69,9 @@
   "collection": {
     "inprogress": "Collection in progress...",
     "complete": "Collection completed.",
-    "wait": "Please wait while your purchase is being collected.",
+    "wait": "Please wait while your purchases are being collected.",
     "thank": "Thank you for using our service!",
-    "rate": "Please spent a moment to rate us!"
+    "rate": "Please spent a moment to rate us!",
+    "rated": "Thank you for your valuable input!"
   }
 }
