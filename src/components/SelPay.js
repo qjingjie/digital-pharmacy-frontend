@@ -9,11 +9,14 @@ class SelPay extends Component {
   };
 
   componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 18000000000); // Redirects to landing page after 3mins on inactivity
+    this.page_timeout = setTimeout(
+      () => this.setState({ redirect: true }),
+      900000
+    ); // Redirects to landing page after 3mins on inactivity
   }
 
   componentWillUnmount() {
-    clearTimeout(this.id);
+    clearTimeout(this.page_timeout);
   }
 
   render() {
@@ -29,10 +32,16 @@ class SelPay extends Component {
             {parseFloat(this.props.tpriceMem).toFixed(2)}
           </p>
           <div className="m-payment-container">
-            <RouteBtn classname="m-payment-1" path="/payment" text="Option 1" />
-            <RouteBtn classname="m-payment-2" path="/payment" text="Option 2" />
-            <RouteBtn classname="m-payment-3" path="/payment" text="Option 3" />
-            <RouteBtn classname="m-payment-4" path="/payment" text="Option 4" />
+            <RouteBtn
+              classname="m-payment-1"
+              path="/payment"
+              text={this.props.t("selpay.credit")}
+            />
+            <RouteBtn
+              classname="m-payment-2"
+              path="/payment"
+              text={this.props.t("selpay.qr")}
+            />
           </div>
         </div>
       </div>

@@ -9,12 +9,15 @@ class SelectionPage extends Component {
   };
 
   componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 18000000000); // Redirects to landing page after 3mins on inactivity
+    this.page_timeout = setTimeout(
+      () => this.setState({ redirect: true }),
+      900000
+    ); // set 15 mins page timeout
     this.props.updateCart([], 0.0);
   }
 
   componentWillUnmount() {
-    clearTimeout(this.id);
+    clearTimeout(this.page_timeout);
   }
 
   render() {

@@ -18,7 +18,7 @@ class AwaitQR extends Component {
         <p className="m-qr-text">{this.props.text}</p>
         <img
           className="m-qrcode"
-          src={require("../img/qr-code.png")}
+          src={require("../img/qr_code.png")}
           alt="qr"
         />
         <img
@@ -90,11 +90,6 @@ class Await2FA extends Component {
           classname="m-counter-2fa"
           initialCount={this.props.timeoutSec}
           interval="1000"
-          fetch="False"
-          fetchRoute="/paymentOTC"
-          fetchHandler={this.chk2FA}
-          dictKey="transactionPass"
-          dispcount="True"
           text={this.props.timeoutText}
         />
       </div>
@@ -117,11 +112,14 @@ class GetPrescPage extends Component {
   }
 
   componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 180000000);
+    this.page_timeout = setTimeout(
+      () => this.setState({ redirect: true }),
+      180000000
+    );
   }
 
   componentWillUnmount() {
-    clearTimeout(this.id);
+    clearTimeout(this.page_timeout);
   }
 
   handleTimeout() {

@@ -9,25 +9,37 @@ class Payment extends Component {
 
     this.state = {
       redirect: false,
-      transactionPass: false
+      transactionPass: false,
+      payment_error: false
     };
-
-    this.handleTransaction = this.handleTransaction.bind(this);
   }
 
   componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 60000); // Redirects to payment selection page after 1min on inactivity
+    this.page_timeout = setTimeout(
+      () => this.setState({ redirect: true }),
+      60000
+    ); // Redirects to payment selection page after 1min on inactivity
+
+    var jsonOut = this.state.transactionPass;
+
+    fetch("/paymentOTC", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jsonOut)
+    }).then(response =>
+      response.json().then(data => {
+        if (data === "true") {
+          this.setState({ transactionPass: true });
+        } else {
+          setTimeout(() => this.setState({ payment_error: true }), 3000);
+        }
+      })
+    );
   }
 
   componentWillUnmount() {
-    clearTimeout(this.id);
-    clearTimeout(this.next);
-  }
-
-  handleTransaction(newstate) {
-    this.setState({
-      transactionPass: newstate
-    });
+    clearTimeout(this.page_timeout);
+    clearTimeout(this.transit_page);
   }
 
   render() {
@@ -36,7 +48,10 @@ class Payment extends Component {
     }
 
     if (this.state.transactionPass) {
-      this.next = setTimeout(() => this.props.history.push("/collection"), 500);
+      this.transit_page = setTimeout(
+        () => this.props.history.push("/collection"),
+        500
+      );
     }
 
     return (
@@ -57,10 +72,6 @@ class Payment extends Component {
           classname="m-counter"
           initialCount="60"
           interval="1000"
-          fetch="True"
-          fetchRoute="/paymentOTC"
-          dictKey="transactionPass"
-          handler={this.handleTransaction}
           dispcount="True"
           text={this.props.t("general.timeout")}
         />

@@ -58,7 +58,9 @@
     "incorrect": "The code that you have entered is incorrect, please try again."
   },
   "selpay": {
-    "helper": "Please Select A Payment Option"
+    "helper": "Please Select A Payment Option",
+    "credit": "Credit / Debit Card Payment",
+    "qr": "QR Code Payment"
   },
   "payment": {
     "wait": "Awaiting Payment...",

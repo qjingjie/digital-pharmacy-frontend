@@ -184,7 +184,10 @@ class GslPage extends Component {
   }
 
   componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 1800000000);
+    this.page_timeout = setTimeout(
+      () => this.setState({ redirect: true }),
+      900000
+    );
 
     fetch("/OTCMedicine/")
       .then(response => response.json())
@@ -197,7 +200,7 @@ class GslPage extends Component {
   }
 
   componentWillUnmount() {
-    clearTimeout(this.id);
+    clearTimeout(this.page_timeout);
   }
 
   handleClick(identifier) {
