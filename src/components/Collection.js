@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 import { withRouter } from "react-router-dom";
+import RouteBtn from "./RouteBtn";
 
 const Star = props => (
   <div className={props.classname}>
@@ -32,7 +33,7 @@ class Collection extends Component {
 
     this.state = {
       progress: 0,
-      compeleted: true,
+      compeleted: false,
       rating: 0,
 
       disabled: false, //disable click events on svg
@@ -185,6 +186,12 @@ class Collection extends Component {
                 handle={() => this.handleRate("5")}
               />
             </div>
+            <RouteBtn
+              classname="m-home"
+              path="/"
+              chkcart="False"
+              payment="False"
+            />
           </div>
         ) : (
           <p className="m-heading-inprogress">

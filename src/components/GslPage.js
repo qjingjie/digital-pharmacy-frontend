@@ -328,6 +328,7 @@ class GslPage extends Component {
         this.setState({ exceedBd: true });
       }
     }
+    this.handleClose();
   }
 
   handleDelete(id) {

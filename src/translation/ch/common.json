@@ -16,7 +16,7 @@
     "timeout": "秒后超时。",
     "update_stock": "更新库存",
     "update_exit": "更新并退出",
-    "exiting": "正在更新数据库...并退出..."
+    "exiting": "正在更新数据库..."
   },
   "status": {
     "JAN": "一月",

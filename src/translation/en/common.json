@@ -16,7 +16,7 @@
     "timeout": "seconds before timeout.",
     "update_stock": "Update Stock",
     "update_exit": "Update and Exit",
-    "exiting": "Updating database...and exiting..."
+    "exiting": "Updating database..."
   },
   "status": {
     "JAN": "JAN",
@@ -69,7 +69,7 @@
   "collection": {
     "inprogress": "Collection in progress...",
     "complete": "Collection completed.",
-    "wait": "Please wait while your purchases are being collected.",
+    "wait": "Please hold on while your purchases are being collected.",
     "thank": "Thank you for using our service!",
     "rate": "Please spent a moment to rate us!",
     "rated": "Thank you for your valuable input!"
