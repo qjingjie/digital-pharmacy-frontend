@@ -43,6 +43,12 @@ class Payment extends Component {
   componentWillUnmount() {
     clearTimeout(this.page_timeout);
     clearTimeout(this.transit_page);
+    var jsonOut = { cart: this.props.cartMem };
+    fetch("/updateDBOTC/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jsonOut)
+    });
   }
 
   render() {

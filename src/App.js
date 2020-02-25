@@ -127,6 +127,7 @@ class App extends Component {
                   <Payment
                     {...props4}
                     paymentOption={this.state.payment_option}
+                    cartMem={this.state.cart}
                   />
                 )}
               />

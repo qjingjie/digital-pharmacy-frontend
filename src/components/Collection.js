@@ -33,7 +33,7 @@ class Collection extends Component {
 
     this.state = {
       progress: 0,
-      compeleted: true,
+      compeleted: false,
       rating: 0,
 
       disabled: false, //disable click events on svg
@@ -53,20 +53,22 @@ class Collection extends Component {
   }
 
   componentDidMount() {
-    var jsonOut = { cart: this.props.cartMem };
+    // var jsonOut = { cart: this.props.cartMem };
+    console.log("here");
 
     // Send cart items to backend server
-    fetch("/updateDBOTC/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(jsonOut)
-    }).then(response =>
-      response.json().then(data => {
-        if (data === "Done") {
-          this.setState({ compeleted: true });
-        }
-      })
-    );
+    // fetch("/updateDBOTC/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(jsonOut)
+    // });
+    // .then(response =>
+    //   response.json().then(data => {
+    //     if (data === "Done") {
+    //       this.setState({ compeleted: true });
+    //     }
+    //   })
+    // );
 
     var time_est = 8000; // Time estimate in ms for the collection of each item
 
@@ -139,7 +141,7 @@ class Collection extends Component {
   }
   render() {
     if (this.state.disabled === true) {
-      this.next = setTimeout(() => this.props.history.push("/"), 300000000);
+      this.next = setTimeout(() => this.props.history.push("/"), 3000);
     }
     return (
       <div>

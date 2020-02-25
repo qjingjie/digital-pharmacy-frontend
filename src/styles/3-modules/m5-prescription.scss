@@ -198,14 +198,15 @@ $Orange: #e79b25;
 }
 
 .m5-qty-center-align {
-  width: 85%;
-  height: 50px;
-
   border-radius: 15px;
   font-size: 24px;
 
   display: inline;
   text-align: center;
+
+  color: $PrimaryFont;
+
+  padding-top: 9px;
 
   line-height: 50px;
   background-color: rgba(255, 255, 255, 0.1);
