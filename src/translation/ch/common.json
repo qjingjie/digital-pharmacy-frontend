@@ -2,20 +2,20 @@
   "general": {
     "cart": "购物车",
     "brand": "品牌",
-    "item": "物品",
-    "quantity": "数量",
-    "price": "价钱",
+    "item": "选项",
+    "quantity": "购买数量",
+    "price": "价格",
     "subtotal": "小计",
-    "tprice": "总价",
-    "payment": "结帐",
+    "tprice": "合计",
+    "payment": "结算",
     "stock": "库存",
-    "availstock": "剩余库存",
-    "description": "描述",
-    "add": "添加到购物车",
-    "empty": "购物车是空的",
-    "timeout": "秒后超时。",
+    "availstock": "库存",
+    "description": "详情",
+    "add": "加入购物车",
+    "empty": "购物车竟然是空的",
+    "timeout": "秒之后验证码失效。",
     "update_stock": "更新库存",
-    "update_exit": "更新并退出",
+    "update_exit": "更新后退出",
     "exiting": "正在更新数据库..."
   },
   "status": {
@@ -43,35 +43,36 @@
     "3": "(上午)",
     "4": "(下午)",
     "5": "(晚上)",
-    "back": "退",
-    "more": "更多可供选择项目"
+    "back": "后退",
+    "more": "更多选择"
   },
   "selectionpage": {
-    "welcome": "你好,",
-    "helper": "您今天想要做什么?",
-    "gsl": "购买一般销售清单药物",
+    "welcome": "欢迎光临,",
+    "helper": "您今天想做什么?",
+    "gsl": "购买非处方药",
     "presc": "购买处方药物"
   },
   "getpresc": {
     "qr": "请扫描您处方上的二维码。",
-    "helper2fa": "请输入发送到您的注册电子邮件的2FA代码。",
-    "incorrect": "您输入的代码不正确，请重试。"
+    "helper2fa": "请输入您的验证码。 您的验证码以发至您所注册的电子邮箱。",
+    "incorrect": "验证失败， 请您再试一试。"
   },
   "selpay": {
-    "helper": "请选择付款方式",
+    "helper": "请选择支付方式",
     "credit": "信用卡/借记卡付款",
-    "qr": "QR码支付"
+    "qr": "二维码扫描"
   },
   "payment": {
-    "wait": "等待付款当中...",
-    "success": "交易成功!"
+    "wait": "支付转账中。。。",
+    "success": "支付成功！"
   },
   "collection": {
-    "inprogress": "收集中。。。",
-    "complete": "收集完成。",
-    "wait": "正在收集您的购买商品，请稍候。",
-    "thank": "感谢您使用我们的服务!",
-    "rate": "请花点时间给我们评分",
-    "rated": "谢谢您的宝贵意见!"
+    "inprogress": "正在采集药物。。。",
+    "complete": "采集完成。",
+    "wait": "请稍等，您的药物正在采集中。",
+    "thank": "感谢您对我们的支持！",
+    "rate": "请您给我们评分！",
+    "rated": "感谢您宝贵的意见！",
+    "check": "稍等同时， , 您可以点击屏幕右边上的图标， 以获取各药物的使用说明"
   }
 }

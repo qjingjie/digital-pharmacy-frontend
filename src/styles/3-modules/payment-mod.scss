@@ -14,8 +14,8 @@ div {
   text-align: center;
 }
 .m-pos-icon {
-  width: 500px;
-  margin-left: calc((100vw - 500px) / 2);
+  width: 250px;
+  margin-left: calc((100vw - 250px) / 2);
 
   margin-top: 10px;
 }
@@ -23,6 +23,8 @@ div {
 .m-counter {
   width: 100vw;
   height: 30px;
+
+  margin-top: 20px;
 
   font-size: 22px;
   color: $PrimaryFont;

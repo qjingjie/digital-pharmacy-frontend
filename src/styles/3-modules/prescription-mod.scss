@@ -1,0 +1,110 @@
+$PrimaryFont: whitesmoke;
+$Orange: #e79b25;
+
+.m-nric,
+.m-prescribe-date,
+.m-valid-date {
+  margin-left: 40px;
+  font-size: 16px;
+}
+
+.m-presc-arrow-container {
+  position: absolute;
+  width: 99%;
+  height: 10%;
+  top: 76%;
+  left: 0.5%;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.m-checkoutpresc-cta {
+  position: absolute;
+  width: 450px;
+  height: 60px;
+  bottom: 1.5%;
+  right: 0.5%;
+
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+  font-size: 22px;
+  font-weight: bold;
+  color: $PrimaryFont;
+
+  background-color: $Orange;
+  border: none;
+  border-radius: 10px;
+
+  outline: none;
+}
+
+.m-checkoutpresc-cta:active {
+  background-color: darken($Orange, 10%);
+  color: darken($PrimaryFont, 10%);
+}
+
+.m-empty-prompt {
+  position: absolute;
+  width: 30%;
+  height: 60%;
+  top: 13.5%;
+  left: 35%;
+
+  border-radius: 10px;
+
+  background-color: rgba(255, 255, 255, 1);
+
+  display: flex;
+
+  button {
+    position: absolute;
+    width: 30%;
+    height: 50px;
+    bottom: 10px;
+    left: 35%;
+
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.015em;
+    font-size: 22px;
+    font-weight: bold;
+    color: $PrimaryFont;
+
+    background-color: $Orange;
+    border: none;
+
+    outline: none;
+  }
+}
+
+.m-plus,
+.m-minus {
+  width: 35px;
+  height: 35px;
+
+  margin: auto;
+
+  border-radius: 25px;
+  font-size: 16px;
+
+  color: $PrimaryFont;
+
+  box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.35),
+    inset 0px 0px 3px 0px rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.1);
+
+  outline: none;
+}
+
+.m-plus:active,
+.m-minus:active {
+  background-color: $Orange;
+}
+
+.m-plus:disabled,
+.m-minus:disabled {
+  background-color: rgba(255, 255, 255, 0.7);
+}

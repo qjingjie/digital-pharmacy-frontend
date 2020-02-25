@@ -33,7 +33,7 @@ class Collection extends Component {
 
     this.state = {
       progress: 0,
-      compeleted: false,
+      compeleted: true,
       rating: 0,
 
       disabled: false, //disable click events on svg
@@ -68,13 +68,15 @@ class Collection extends Component {
       })
     );
 
-    var bar_interval = (this.props.item_count * 8000) / 98;
+    var time_est = 8000; // Time estimate in ms for the collection of each item
+
+    var bar_interval = (this.props.item_count * time_est) / 95;
     this.interval = setInterval(() => {
       this.state.compeleted
         ? this.setState({ progress: 100 })
-        : this.state.progress <= 98
+        : this.state.progress < 95
         ? this.setState(state => ({ progress: state.progress + 1 }))
-        : this.setState({ progress: 98 });
+        : this.setState({ progress: 95 });
     }, bar_interval);
   }
 
@@ -137,81 +139,92 @@ class Collection extends Component {
   }
   render() {
     if (this.state.disabled === true) {
-      this.next = setTimeout(() => this.props.history.push("/"), 3000);
+      this.next = setTimeout(() => this.props.history.push("/"), 300000000);
     }
     return (
       <div>
-        {this.state.progress === 100 ? (
-          <div>
-            <p className="m-heading-completed-tk">
-              {this.props.t("collection.thank")}
-            </p>
-            <p className="m-heading-completed-rate">
-              {this.props.t("collection.rate")}
-            </p>
-            <div className="m-rating-container">
-              <Star
-                classname="m-star-1"
-                fill={this.state.star1_fill}
-                size={this.state.star1_size}
-                disable={this.state.disabled}
-                handle={() => this.handleRate("1")}
-              />
-              <Star
-                classname="m-star-2"
-                fill={this.state.star2_fill}
-                size={this.state.star2_size}
-                disable={this.state.disabled}
-                handle={() => this.handleRate("2")}
-              />
-              <Star
-                classname="m-star-3"
-                fill={this.state.star3_fill}
-                size={this.state.star3_size}
-                disable={this.state.disabled}
-                handle={() => this.handleRate("3")}
-              />
-              <Star
-                classname="m-star-4"
-                fill={this.state.star4_fill}
-                size={this.state.star4_size}
-                disable={this.state.disabled}
-                handle={() => this.handleRate("4")}
-              />
-              <Star
-                classname="m-star-5"
-                fill={this.state.star5_fill}
-                size={this.state.star5_size}
-                disable={this.state.disabled}
-                handle={() => this.handleRate("5")}
+        <div className="l-general-info">
+          {this.state.progress === 100 ? (
+            <div>
+              <p className="m-heading-completed-tk">
+                {this.props.t("collection.thank")}
+              </p>
+              <p className="m-heading-completed-rate">
+                {this.props.t("collection.rate")}
+              </p>
+              <div className="m-rating-container">
+                <Star
+                  classname="m-star-1"
+                  fill={this.state.star1_fill}
+                  size={this.state.star1_size}
+                  disable={this.state.disabled}
+                  handle={() => this.handleRate("1")}
+                />
+                <Star
+                  classname="m-star-2"
+                  fill={this.state.star2_fill}
+                  size={this.state.star2_size}
+                  disable={this.state.disabled}
+                  handle={() => this.handleRate("2")}
+                />
+                <Star
+                  classname="m-star-3"
+                  fill={this.state.star3_fill}
+                  size={this.state.star3_size}
+                  disable={this.state.disabled}
+                  handle={() => this.handleRate("3")}
+                />
+                <Star
+                  classname="m-star-4"
+                  fill={this.state.star4_fill}
+                  size={this.state.star4_size}
+                  disable={this.state.disabled}
+                  handle={() => this.handleRate("4")}
+                />
+                <Star
+                  classname="m-star-5"
+                  fill={this.state.star5_fill}
+                  size={this.state.star5_size}
+                  disable={this.state.disabled}
+                  handle={() => this.handleRate("5")}
+                />
+              </div>
+              <RouteBtn
+                classname="m-home"
+                path="/"
+                chkcart="False"
+                payment="False"
               />
             </div>
-            <RouteBtn
-              classname="m-home"
-              path="/"
-              chkcart="False"
-              payment="False"
-            />
-          </div>
-        ) : (
-          <p className="m-heading-inprogress">
-            {this.props.t("collection.wait")}
-          </p>
-        )}
-
-        {this.state.disabled ? (
-          <p className="m-rated">{this.props.t("collection.rated")}</p>
-        ) : null}
-
-        <div
-          className="m-progress-bar"
-          style={{ "--width": this.state.progress }}
-        >
-          {this.state.progress === 100 ? (
-            <p>{this.props.t("collection.complete")}</p>
           ) : (
-            <p>{this.props.t("collection.inprogress")}</p>
+            <div>
+              <p className="m-heading-inprogress">
+                {this.props.t("collection.wait")}
+              </p>
+              <p className="m-check-usage">
+                {this.props.t("collection.check")}
+              </p>
+            </div>
           )}
+
+          {this.state.disabled ? (
+            <p className="m-rated">{this.props.t("collection.rated")}</p>
+          ) : null}
+
+          <div
+            className="m-progress-bar"
+            style={{ "--width": this.state.progress }}
+          >
+            {this.state.progress === 100 ? (
+              <p>{this.props.t("collection.complete")}</p>
+            ) : (
+              <p>{this.props.t("collection.inprogress")}</p>
+            )}
+          </div>
+        </div>
+
+        <div className="l-purchased-panel">
+          <div className="m-arrow-container"></div>
         </div>
       </div>
     );

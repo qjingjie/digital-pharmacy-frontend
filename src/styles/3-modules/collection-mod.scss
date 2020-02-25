@@ -5,7 +5,7 @@ $PrimaryFont: whitesmoke;
   width: 600px;
   height: 3em;
   bottom: 250px;
-  left: calc((100vw - 600px) / 2);
+  left: calc((100% - 600px) / 2);
 
   border-radius: 1.5em;
 
@@ -46,7 +46,7 @@ $PrimaryFont: whitesmoke;
   width: 500px;
   height: 100px;
   bottom: 350px;
-  left: calc((100vw - 500px) / 2);
+  left: calc((100% - 500px) / 2);
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -108,18 +108,50 @@ $PrimaryFont: whitesmoke;
 }
 
 .m-heading-inprogress {
-  width: 100vw;
+  position: absolute;
+  width: 90%;
 
   text-align: center;
 
-  margin-top: 200px;
+  margin-top: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
   font-size: 36px;
   color: $PrimaryFont;
   font-weight: bold;
 }
 
+.m-check-usage {
+  position: absolute;
+  width: 50%;
+  height: 100px;
+
+  display: flex;
+
+  text-align: center;
+  align-items: center;
+
+  margin-top: 250px;
+  margin-left: 25%;
+  margin-right: 25%;
+
+  border: solid $PrimaryFont;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(50px);
+
+  border-radius: 50px;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: $PrimaryFont;
+}
+
 .m-heading-completed-tk {
-  width: 100vw;
+  position: absolute;
+  width: 100%;
 
   text-align: center;
 
@@ -130,23 +162,27 @@ $PrimaryFont: whitesmoke;
 }
 
 .m-heading-completed-rate {
-  width: 100vw;
+  position: absolute;
+  width: 100%;
 
   text-align: center;
 
   font-size: 24px;
   font-family: "Open Sans", sans-serif;
   color: $PrimaryFont;
+  margin-top: 140px;
 }
 
 .m-rated {
-  width: 100vw;
+  position: absolute;
+  width: 100%;
 
   text-align: center;
 
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   color: $PrimaryFont;
+  margin-top: 200px;
 }
 
 .m-home {
@@ -155,16 +191,33 @@ $PrimaryFont: whitesmoke;
   height: 80px;
   bottom: 100px;
 
-  margin-left: calc((100vw - 100px) / 2);
+  margin-left: calc((100% - 100px) / 2);
 
   border-radius: 10px;
 
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
     inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
   background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
 
   background-image: url("../../icons/home.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 60%;
+
+  outline: none;
+}
+
+.m-arrow-container {
+  position: absolute;
+
+  width: 100%;
+  height: 50px;
+  bottom: 0px;
+  left: 0px;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  background-color: rgba(255, 255, 255, 0.25);
 }

@@ -66,11 +66,20 @@ class Payment extends Component {
         ) : (
           <p className="m-waitpayment-text">{this.props.t("payment.wait")}</p>
         )}
-        <img
-          className="m-pos-icon"
-          src={require("../icons/POS.svg")}
-          alt="POS"
-        />
+        {this.props.paymentOption === "qr" ? (
+          <img
+            className="m-pos-icon"
+            src={require("../icons/POS-QR.svg")}
+            alt="POS"
+          />
+        ) : (
+          <img
+            className="m-pos-icon"
+            src={require("../icons/POS-NFC.svg")}
+            alt="POS"
+          />
+        )}
+
         <CdCounter
           classname="m-counter"
           initialCount="60"

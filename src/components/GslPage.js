@@ -33,7 +33,7 @@ function ItemInfo(props) {
       <span className="m-iteminfo-brand">{props.brand}</span>
       <span className="m-iteminfo-name">{props.name}</span>
       <span className="m-iteminfo-price">
-        {props.t("general.price")}: ${props.price} ea
+        {props.t("general.price")}: ${props.price}
       </span>
       <span className="m-iteminfo-stock">
         {props.t("general.availstock")}: {props.stock}
@@ -48,6 +48,7 @@ function ItemInfo(props) {
           className="m-iteminfo-minus"
           type="button"
           onClick={props.handleMinus}
+          disabled={props.quantity <= 1 ? true : false}
         >
           -
         </button>
@@ -56,6 +57,7 @@ function ItemInfo(props) {
           className="m-iteminfo-plus"
           type="button"
           onClick={props.handlePlus}
+          disabled={props.quantity === props.stock ? true : false}
         >
           +
         </button>
@@ -149,10 +151,9 @@ class GslPage extends Component {
       redirect: false,
 
       // For shopping cart
-      tprice: parseFloat(this.props.tpriceMem),
+      tprice: parseFloat(this.props.tpriceMem).toFixed(2),
       exceedBd: false, // Check if there are more than 5 different items in cart
       isBottomCart: false, // Check if the bottom of the cart list is reached if exceedBd is true
-      renderEmpty: false,
       emptyText: null,
 
       // For item list
@@ -357,11 +358,10 @@ class GslPage extends Component {
 
   handleEmpty() {
     this.setState({
-      renderEmpty: true,
       emptyText: this.props.t("general.empty")
     });
     setTimeout(() => {
-      this.setState({ renderEmpty: false, emptyText: null });
+      this.setState({ emptyText: null });
     }, 1000);
   }
 
@@ -442,11 +442,13 @@ class GslPage extends Component {
               />
             ))}
           </div>
-          {this.state.exceedBd
-            ? this.state.isBottomCart
-              ? cart_arr_up
-              : cart_arr_down
-            : null}
+          <div className="m-cart-arrow-container">
+            {this.state.exceedBd
+              ? this.state.isBottomCart
+                ? cart_arr_up
+                : cart_arr_down
+              : null}
+          </div>
           <div className="l-price-container">
             <p className="tprice-label">{this.props.t("general.tprice")}</p>
             <p className="tprice-amt">${this.state.tprice}</p>
@@ -456,7 +458,7 @@ class GslPage extends Component {
             path="/selectpayment"
             text={this.props.t("general.payment")}
             chkCart="True"
-            tprice={this.state.tprice}
+            tprice={parseInt(this.state.tprice)}
             handleEmpty={this.handleEmpty}
           />
 

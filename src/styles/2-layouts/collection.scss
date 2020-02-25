@@ -1,0 +1,20 @@
+.l-general-info {
+  position: absolute;
+  width: 70vw;
+  height: 100%;
+}
+
+.l-purchased-panel {
+  position: absolute;
+  height: 98%;
+  width: 29.5vw;
+  top: 1%;
+  right: 0.5vw;
+
+  border-radius: 10px;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+}

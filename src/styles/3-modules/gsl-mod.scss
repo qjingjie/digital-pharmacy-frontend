@@ -74,7 +74,12 @@ $Basepanel: whitesmoke;
 
   padding: 0px;
 
+  background-color: rgba(255, 255, 255, 0.1);
+
   margin-left: 25px;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 
   overflow-y: scroll;
 }
@@ -83,12 +88,22 @@ $Basepanel: whitesmoke;
   display: none;
 }
 
-.m-cart-arrowdown,
-.m-cart-arrowup {
+.m-cart-arrow-container {
   width: 450px;
   height: 50px;
 
   margin-left: 25px;
+
+  background-color: rgba(255, 255, 255, 0.3);
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.m-cart-arrowdown,
+.m-cart-arrowup {
+  width: 450px;
+  height: 50px;
 
   text-align: center;
 
@@ -277,6 +292,11 @@ $Basepanel: whitesmoke;
       background-color: $Orange;
     }
 
+    .m-iteminfo-plus:disabled,
+    .m-iteminfo-minus:disabled {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
     .m-iteminfo-count {
       width: 100px;
       height: 50px;
@@ -375,7 +395,7 @@ $Basepanel: whitesmoke;
 .m-error-prompt {
   position: absolute;
   width: 450px;
-  top: 300px;
+  top: 240px;
 
   text-align: center;
   font-size: 36px;
