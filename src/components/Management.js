@@ -4,8 +4,12 @@ import { withTranslation } from "react-i18next";
 
 function InventorySlot(props) {
   return (
-    <div className="l-inventory">
-      <button className="m-inventory" type="button" onClick={props.handleClick}>
+    <div className="l9-inventory-container">
+      <button
+        className="m9-inventory"
+        type="button"
+        onClick={props.handleClick}
+      >
         <p>
           ID: {props.id}
           <br></br>
@@ -21,7 +25,7 @@ function InventorySlot(props) {
           {props.t("general.stock")}:<br></br>
         </p>
         <p
-          className="m-stock"
+          className="m9-inventory-stock"
           style={{ color: props.stock === 0 ? "red" : "green" }}
         >
           {props.stock}
@@ -61,14 +65,14 @@ class AddInventory extends Component {
 
   render() {
     return (
-      <div className="l-management-base">
+      <div className="l9-management-container">
         <button
-          className="m-management-close"
+          className="m9-management-close"
           type="button"
           onClick={this.props.handleClose}
         ></button>
 
-        <p className="l-management-addinventory">
+        <p className="m9-addinventory">
           ID: {this.props.id}
           <br></br>
           <br></br>
@@ -78,8 +82,8 @@ class AddInventory extends Component {
           {this.props.t("general.item")}: {this.props.name}
         </p>
 
-        <p className="l-stock-text">{this.props.t("general.stock")}</p>
-        <div className="l-stock-container">
+        <p className="m9-stock">{this.props.t("general.stock")}</p>
+        <div className="l9-stock-container">
           <button type="button" onClick={() => this.handleMinus(10)}>
             -10
           </button>
@@ -98,7 +102,7 @@ class AddInventory extends Component {
         </div>
 
         <button
-          className="m-update-stock"
+          className="m9-update-stock-btn"
           type="button"
           onClick={() =>
             this.props.handleUpdate(this.state.update_stock, this.props.id)
@@ -210,9 +214,9 @@ class Management extends Component {
 
   render() {
     return (
-      <div className="l-management">
+      <div className="l9-page-container">
         {this.state.onExit ? (
-          <div className="l-management-base">
+          <div className="l9-management-container">
             <p>{this.props.t("general.exiting")}</p>
           </div>
         ) : this.state.selected ? (
@@ -225,8 +229,8 @@ class Management extends Component {
             handleUpdate={this.handleUpdate}
           />
         ) : (
-          <div className="l-inventory-list">
-            <button className="m-home-btn" onClick={this.handleExit}>
+          <div className="l9-inventory-list-container">
+            <button className="m9-home-btn" onClick={this.handleExit}>
               {this.props.t("general.update_exit")}
             </button>
             {this.state.isLoaded

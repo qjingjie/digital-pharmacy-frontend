@@ -1,34 +1,7 @@
 $PrimaryFont: whitesmoke;
 $Orange: #e79b25;
 
-.l-inventory-list {
-  position: absolute;
-  width: 100vw;
-  height: calc(100vh - 50px);
-  bottom: 0px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
-
-.l-inventory-list::-webkit-scrollbar {
-  display: none;
-}
-
-.l-inventory {
-  width: 100px;
-  height: 200px;
-
-  overflow: hidden;
-
-  margin: auto;
-}
-
-.l-management-base {
+.l9-management-container {
   position: absolute;
   width: 90vw;
   height: calc(100vh - 60px);
@@ -50,27 +23,9 @@ $Orange: #e79b25;
     text-align: center;
     font-size: 50px;
   }
-
-  .l-management-addinventory {
-    position: absolute;
-    top: 20px;
-    max-width: 100%;
-
-    color: $PrimaryFont;
-    text-align: left;
-    font-size: 30px;
-    padding-left: 20px;
-  }
 }
 
-.l-stock-text {
-  position: absolute;
-  width: 50%;
-  bottom: 40%;
-  left: 0px;
-}
-
-.l-stock-container {
+.l9-stock-container {
   position: absolute;
   width: 600px;
   height: 100px;
@@ -121,4 +76,31 @@ $Orange: #e79b25;
   button:active {
     background-color: $Orange;
   }
+}
+
+.l9-inventory-list-container {
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  bottom: 0px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.l9-inventory-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.l9-inventory-container {
+  width: 100px;
+  height: 200px;
+
+  overflow: hidden;
+
+  margin: auto;
 }

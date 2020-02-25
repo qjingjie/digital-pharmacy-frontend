@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { withTranslation } from "react-i18next";
-import LandingPage from "./components/LandingPage";
-import SelectionPage from "./components/SelectionPage";
+import Landing from "./components/Landing";
+import Selection from "./components/Selection";
 import StatusBar from "./components/StatusBar";
-import GetPrescPage from "./components/GetPrescPage";
+import GetPresc from "./components/GetPresc";
 import Management from "./components/Management";
 import Prescription from "./components/Prescription";
-import GslPage from "./components/GslPage";
+import Gsl from "./components/Gsl";
 import SelPay from "./components/SelPay";
 import Payment from "./components/Payment";
 import Collection from "./components/Collection";
@@ -16,30 +16,30 @@ import "./styles/app.scss";
 // For pages with the status bar displayed
 function WithStatusBar(props) {
   return (
-    <div className="l-app">
+    <div className="l0-app-container">
       <StatusBar trans={props.trans} />
       <Switch>
         <Route
           exact
-          path="/selectionpage"
+          path="/Selection"
           render={props1 => (
-            <SelectionPage {...props1} updateCart={props.updateCart} />
+            <Selection {...props1} updateCart={props.updateCart} />
           )}
         />
-        <Route exact path="/getpresc" component={GetPrescPage} />
+        <Route exact path="/GetPresc" component={GetPresc} />
         <Route
           exact
-          path="/prescription"
+          path="/Prescription"
           render={props6 => (
             <Prescription {...props6} updateCart={props.updateCart} />
           )}
         />
-        <Route exact path="/management" component={Management} />
+        <Route exact path="/Management" component={Management} />
         <Route
           exact
-          path="/gsl"
+          path="/Gsl"
           render={props2 => (
-            <GslPage
+            <Gsl
               {...props2}
               tpriceMem={props.tpriceMem}
               cartMem={props.cartMem}
@@ -49,7 +49,7 @@ function WithStatusBar(props) {
         />
         <Route
           exact
-          path="/selectpayment"
+          path="/SelPay"
           render={props3 => (
             <SelPay
               {...props3}
@@ -110,19 +110,19 @@ class App extends Component {
     const { i18n } = this.props;
     return (
       <main>
-        <div className="l-app">
+        <div className="l0-app-container">
           <Router>
             <Switch>
               <Route
                 exact
                 path="/"
                 render={props0 => (
-                  <LandingPage {...props0} updateCart={this.updateCart} />
+                  <Landing {...props0} updateCart={this.updateCart} />
                 )}
               />
               <Route
                 exact
-                path="/payment"
+                path="/Payment"
                 render={props4 => (
                   <Payment
                     {...props4}
@@ -132,7 +132,7 @@ class App extends Component {
               />
               <Route
                 exact
-                path="/collection"
+                path="/Collection"
                 render={props5 => (
                   <Collection
                     {...props5}

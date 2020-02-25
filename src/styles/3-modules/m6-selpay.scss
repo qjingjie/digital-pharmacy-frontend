@@ -1,6 +1,8 @@
 $PrimaryFont: whitesmoke;
 
-.m-payment-text {
+// ==================================================================================
+// module container: l6-headings-container
+.m6-payment-heading {
   margin-top: 20px;
 
   font-size: 36px;
@@ -8,7 +10,7 @@ $PrimaryFont: whitesmoke;
   color: $PrimaryFont;
 }
 
-.m-payment-price {
+.m6-payment-price {
   margin-top: 30px;
 
   font-family: "Open Sans", sans-serif;
@@ -16,20 +18,10 @@ $PrimaryFont: whitesmoke;
   font-weight: normal;
   color: $PrimaryFont;
 }
-
-.m-payment-container {
-  height: 250px;
-  width: 700px;
-
-  margin-top: 70px;
-  margin-left: calc((100vw - 700px) / 2);
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.m-payment-1,
-.m-payment-2 {
+// ==================================================================================
+// module container: l6-payment-container
+.m6-payment-1,
+.m6-payment-2 {
   height: 210px;
   width: calc((700px / 2) - 40px);
   margin: 20px;
@@ -52,20 +44,20 @@ $PrimaryFont: whitesmoke;
   outline: none;
 }
 
-.m-payment-1 {
+.m6-payment-1 {
   background-image: url("../../icons/creditcard.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.m-payment-2 {
+.m6-payment-2 {
   background-image: url("../../img/qr_code.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 40%;
 }
 
-.m-payment-1:active,
-.m-payment-2:active {
+.m6-payment-1:active,
+.m6-payment-2:active {
   background-color: rgba(245, 245, 245, 0.8);
 }

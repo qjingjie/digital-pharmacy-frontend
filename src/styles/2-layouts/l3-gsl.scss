@@ -1,0 +1,234 @@
+$PrimaryFont: whitesmoke;
+
+.l3-sidebar-container {
+  position: absolute;
+  width: 60px;
+  height: calc(100vh - 70px);
+  left: 10px;
+
+  color: $PrimaryFont;
+  text-align: center;
+  font-size: 12px;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+
+  border-radius: 10px;
+  margin-top: 10px;
+
+  animation: slide1 0.4s ease-out 1;
+
+  div {
+    position: absolute;
+    height: 150px;
+    width: inherit;
+    top: calc((100vh - 220px) / 2);
+
+    text-align: center;
+  }
+
+  p {
+    position: absolute;
+    width: 60px;
+    height: 50px;
+    top: 50px;
+    margin: 0px;
+  }
+}
+
+@keyframes slide1 {
+  from {
+    transform: translateX(-60px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.l3-iteminfo-container {
+  position: absolute;
+  width: 770px;
+  height: calc(100vh - 60px);
+
+  margin-top: 10px;
+}
+
+.l3-iteminfo-container2 {
+  width: 760px;
+  height: calc(100vh - 70px);
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+
+  margin-left: 5px;
+
+  color: $PrimaryFont;
+
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-rows: 50px 26px 60px 21px 40px 3fr 3fr 1fr 65px;
+  grid-template-columns: 1fr 1fr 70px;
+  grid-template-areas:
+    "img      gap1     close"
+    "img      brand    gap2"
+    "img      _name    gap3"
+    "img      price    gap4"
+    "img      stock    gap5"
+    "img      desc     gap6"
+    "qty      qty      qty"
+    "subtotal subtotal subtotal"
+    "add     add       add";
+}
+
+.l3-iteminfo-counter-container {
+  grid-area: qty;
+  display: flex;
+  width: 240px;
+
+  margin: auto;
+}
+
+.l3-itemcta-container {
+  position: absolute;
+  width: 680px;
+  height: calc(100vh - 60px);
+  left: 80px;
+
+  margin-top: 10px;
+
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.l3-itemcta-container::-webkit-scrollbar {
+  display: none;
+}
+
+.l3-itemcta-container2 {
+  width: 200px;
+  height: calc((100vh - 90px) / 3);
+
+  border-radius: 30px; // bug fix
+
+  margin-bottom: 10px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.l3-cart-container {
+  position: absolute;
+  width: 500px;
+  height: calc(100vh - 70px);
+  right: 10px;
+
+  margin-top: 10px;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+
+  border-radius: 10px;
+
+  animation: slide2 0.4s ease-out 1;
+}
+
+@keyframes slide2 {
+  from {
+    transform: translateX(510px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.l3-cart-headings-container {
+  width: 450px;
+
+  color: $PrimaryFont;
+
+  display: grid;
+  grid-template-columns: 200px 90px 90px 50px;
+  grid-template-rows: 1;
+  grid-template-areas: "item qty price null1";
+
+  padding: 0px;
+
+  margin-top: 10px;
+  margin-left: 25px;
+
+  opacity: 0.8;
+}
+
+.l3-cart-list-container {
+  width: 450px;
+  height: 350px;
+
+  padding: 0px;
+
+  background-color: rgba(255, 255, 255, 0.1);
+
+  margin-left: 25px;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  overflow-y: scroll;
+}
+
+.l3-cart-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.l3-cart-item-container {
+  height: 70px;
+
+  display: grid;
+  grid-template-columns: 200px 90px 90px 50px;
+  grid-template-rows: 1;
+
+  color: $PrimaryFont;
+
+  align-items: center;
+
+  box-shadow: 0px 4px 10px -10px rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.l3-cart-arrow-container {
+  width: 450px;
+  height: 50px;
+
+  margin-left: 25px;
+
+  background-color: rgba(255, 255, 255, 0.3);
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.l3-cart-price-container {
+  position: absolute;
+  height: 38.67px;
+  bottom: 0px;
+  left: 0px;
+
+  color: $PrimaryFont;
+
+  display: flex;
+
+  margin-bottom: 80px;
+  margin-left: 25px;
+
+  opacity: 0.8;
+}

@@ -1,15 +1,12 @@
-.l-general-info {
+.l4-info-container {
   position: absolute;
-  width: 70vw;
-  height: 100%;
-}
+  width: 600px;
+  height: 600px;
+  top: 0px;
+  right: 0px;
 
-.l-purchased-panel {
-  position: absolute;
-  height: 98%;
-  width: 29.5vw;
-  top: 1%;
-  right: 0.5vw;
+  margin-top: 30px;
+  margin-right: calc((100vw - 1200px) / 3);
 
   border-radius: 10px;
 
@@ -17,4 +14,7 @@
     inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
   background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(5px);
+
+  display: flexbox;
+  text-align: center;
 }

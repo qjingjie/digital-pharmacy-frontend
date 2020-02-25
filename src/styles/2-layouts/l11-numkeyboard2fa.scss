@@ -1,7 +1,4 @@
-$PrimaryFont: whitesmoke;
-$Orange: #e79b25;
-
-.m-numkeyboard2fa-container {
+.l11-numkeyboard2fa-container {
   position: absolute;
   width: 400px;
   height: 420px;
@@ -10,34 +7,14 @@ $Orange: #e79b25;
   margin-left: 100px;
 }
 
-.m-code2fa-container {
+.l11-code2fa-container {
   width: 400px;
   height: 80px;
 
   display: flex;
-
-  .m-code2fa-box {
-    width: 55px;
-    height: 80px;
-
-    margin-left: 10px;
-    border-radius: 10px;
-
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    display: flex;
-    align-items: center;
-
-    p {
-      color: $PrimaryFont;
-      font-size: 32px;
-      margin: auto;
-    }
-  }
 }
 
-.m-keyboard-container {
+.l11-keyboard-container {
   width: 400px;
   height: 320px;
 

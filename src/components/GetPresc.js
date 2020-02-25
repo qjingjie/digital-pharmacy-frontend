@@ -5,7 +5,6 @@ import { Redirect } from "react-router";
 //import ReactPlayer from "react-player";
 import CdCounter from "../components/CdCounter";
 import NumKeyboard2FA from "../components/NumKeyboard2FA";
-import test from "../video/test1.mp4";
 
 class AwaitQR extends Component {
   componentDidMount() {
@@ -14,10 +13,10 @@ class AwaitQR extends Component {
 
   render() {
     return (
-      <div className="l-info-container">
-        <p className="m-qr-text">{this.props.text}</p>
+      <div className="l4-info-container">
+        <h1 className="m4-qr-heading">{this.props.text}</h1>
         <img
-          className="m-qrcode"
+          className="m4-qrcode"
           src={require("../img/qr_code.png")}
           alt="qr"
         />
@@ -72,7 +71,7 @@ class Await2FA extends Component {
     }).then(response =>
       response.json().then(data => {
         if (data === "True") {
-          this.props.history.push("/prescription");
+          this.props.history.push("/Prescription");
         } else {
           this.setState({ incorrectCode: true });
           setTimeout(() => this.setState({ incorrectCode: false }), 3000);
@@ -82,14 +81,14 @@ class Await2FA extends Component {
   }
   render() {
     return (
-      <div className="l-info-container">
-        <p className="m-title-2fa">{this.props.t("getpresc.helper2fa")}</p>
+      <div className="l4-info-container">
+        <h1 className="m4-2fa-heading">{this.props.t("getpresc.helper2fa")}</h1>
         {this.state.incorrectCode ? (
-          <p className="m-error-2fa">{this.props.t("getpresc.incorrect")}</p>
+          <p className="m4-2fa-error">{this.props.t("getpresc.incorrect")}</p>
         ) : null}
         <NumKeyboard2FA enter="enter" handle={this.submit2FA} />
         <CdCounter
-          classname="m-counter-2fa"
+          classname="m4-2fa-counter"
           initialCount={this.props.timeoutSec}
           interval="1000"
           text={this.props.timeoutText}
@@ -102,7 +101,7 @@ class Await2FA extends Component {
 
 const Await2FAwithRouterTrans = withRouter(withTranslation("common")(Await2FA)); // Gives Await2FA the access to history.push
 
-class GetPrescPage extends Component {
+class GetPresc extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -139,7 +138,7 @@ class GetPrescPage extends Component {
     }).then(response =>
       response.json().then(data => {
         if (data === "manage") {
-          this.props.history.push("/management");
+          this.props.history.push("/Management");
         } else {
           if (data === "True") {
             this.setState({ qr_scanned: true });
@@ -154,7 +153,7 @@ class GetPrescPage extends Component {
       return <Redirect push to="/" />;
     }
     return (
-      <div className="l-getpresc">
+      <div className="l4-page-container">
         {this.state.qr_scanned ? (
           <Await2FAwithRouterTrans
             timeout="60000"
@@ -179,4 +178,4 @@ class GetPrescPage extends Component {
   }
 }
 
-export default withTranslation("common")(GetPrescPage);
+export default withTranslation("common")(GetPresc);

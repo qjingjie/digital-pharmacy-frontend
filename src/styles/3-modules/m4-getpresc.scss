@@ -1,0 +1,72 @@
+$PrimaryFont: whitesmoke;
+
+// ==================================================================================
+// module container: l4-info-container
+.m4-2fa-heading {
+  position: absolute;
+  width: 80%;
+  top: 20px;
+  left: 10%;
+
+  font-size: 24px;
+  font-weight: normal;
+  color: $PrimaryFont;
+}
+
+.m4-2fa-error {
+  position: absolute;
+  width: 100%;
+  top: 90px;
+
+  font-size: 16px;
+  color: red;
+}
+
+.m4-2fa-counter {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+
+  font-size: 16px;
+  color: $PrimaryFont;
+}
+
+.m4-qr-heading {
+  width: 600px;
+
+  font-size: 24px;
+  font-weight: normal;
+  color: $PrimaryFont;
+  margin-top: 20px;
+}
+
+.m4-qrcode {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: 0px;
+  left: 0px;
+
+  margin-bottom: 150px;
+  margin-left: 150px;
+}
+
+// .m-scan-line {
+//   position: absolute;
+//   width: 360px;
+//   top: 150px;
+//   left: 0px;
+
+//   margin-left: 120px;
+
+//   //  animation: scan 2.5s ease-in-out infinite;
+// }
+
+// @keyframes scan {
+//   from {
+//     transform: translate3d(0, 0px, 0);
+//   }
+//   to {
+//     transform: translate3d(0px, 280px, 0);
+//   }
+// }

@@ -51,29 +51,29 @@ class NumKeyboard2FA extends Component {
 
   render() {
     return (
-      <div className="m-numkeyboard2fa-container">
-        <div className="m-code2fa-container">
-          <div className="m-code2fa-box">
+      <div className="l11-numkeyboard2fa-container">
+        <div className="l11-code2fa-container">
+          <div className="m11-code2fa-box">
             <p>{this.state.code2FA[0]}</p>
           </div>
-          <div className="m-code2fa-box">
+          <div className="m11-code2fa-box">
             <p>{this.state.code2FA[1]}</p>
           </div>
-          <div className="m-code2fa-box">
+          <div className="m11-code2fa-box">
             <p>{this.state.code2FA[2]}</p>
           </div>
-          <div className="m-code2fa-box">
+          <div className="m11-code2fa-box">
             <p>{this.state.code2FA[3]}</p>
           </div>
-          <div className="m-code2fa-box">
+          <div className="m11-code2fa-box">
             <p>{this.state.code2FA[4]}</p>
           </div>
-          <div className="m-code2fa-box">
+          <div className="m11-code2fa-box">
             <p>{this.state.code2FA[5]}</p>
           </div>
         </div>
 
-        <div className="m-keyboard-container">
+        <div className="l11-keyboard-container">
           <button
             onClick={() => {
               this.handleInput(1);

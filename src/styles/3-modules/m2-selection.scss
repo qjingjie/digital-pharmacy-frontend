@@ -2,7 +2,9 @@ $PrimaryFont: whitesmoke;
 $Gsl: #2e8b57;
 $Presc: #008faf;
 
-.m-welcome {
+// ==================================================================================
+// module container: l2-heading-container
+.m2-welcome {
   margin: 0px;
 
   font-size: 64px;
@@ -10,7 +12,7 @@ $Presc: #008faf;
   color: $PrimaryFont;
 }
 
-.m-helper {
+.m2-helper {
   margin: 0px;
 
   font-family: "Open Sans", sans-serif;
@@ -18,8 +20,9 @@ $Presc: #008faf;
   font-weight: normal;
   color: $PrimaryFont;
 }
-
-.m-gsl-cta {
+// ==================================================================================
+// module container: l2-btn-container
+.m2-gsl-cta {
   width: 44.75vw;
 
   margin-left: 5vw;
@@ -69,7 +72,7 @@ $Presc: #008faf;
   }
 }
 
-.m-presc-cta {
+.m2-presc-cta {
   width: 44.75vw;
 
   margin-right: 5vw;

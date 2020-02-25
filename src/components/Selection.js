@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 import { withTranslation } from "react-i18next";
 import RouteBtn from "./RouteBtn";
 
-class SelectionPage extends Component {
+class Selection extends Component {
   state = {
     redirect: false
   };
@@ -28,18 +28,24 @@ class SelectionPage extends Component {
       return <Redirect push to="/" />;
     }
     return (
-      <div className="l-selectionpage">
-        <div className="l-text-container">
-          <p className="m-welcome"> {this.props.t("selectionpage.welcome")} </p>
-          <p className="m-helper"> {this.props.t("selectionpage.helper")} </p>
+      <div className="l2-page-container">
+        <div className="l2-heading-container">
+          <h1 className="m2-welcome">
+            {" "}
+            {this.props.t("selectionpage.welcome")}{" "}
+          </h1>
+          <h2 className="m2-helper">
+            {" "}
+            {this.props.t("selectionpage.helper")}{" "}
+          </h2>
         </div>
 
-        <div className="l-btn-container">
-          <div className="m-gsl-cta">
-            <RouteBtn path="/gsl" text={this.props.t("selectionpage.gsl")} />
+        <div className="l2-btn-container">
+          <div className="m2-gsl-cta">
+            <RouteBtn path="/Gsl" text={this.props.t("selectionpage.gsl")} />
           </div>
 
-          <div className="m-presc-cta">
+          <div className="m2-presc-cta">
             <RouteBtn
               path="/getpresc"
               text={this.props.t("selectionpage.presc")}
@@ -51,4 +57,4 @@ class SelectionPage extends Component {
   }
 }
 
-export default withTranslation("common")(SelectionPage);
+export default withTranslation("common")(Selection);

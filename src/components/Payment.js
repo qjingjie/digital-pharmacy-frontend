@@ -52,7 +52,7 @@ class Payment extends Component {
 
     if (this.state.transactionPass) {
       this.transit_page = setTimeout(
-        () => this.props.history.push("/collection"),
+        () => this.props.history.push("/Collection"),
         500
       );
     }
@@ -60,28 +60,28 @@ class Payment extends Component {
     return (
       <div>
         {this.state.transactionPass ? (
-          <p className="m-waitpayment-text">
+          <h1 className="m7-waitpayment-text">
             {this.props.t("payment.success")}
-          </p>
+          </h1>
         ) : (
-          <p className="m-waitpayment-text">{this.props.t("payment.wait")}</p>
+          <p className="m7-waitpayment-text">{this.props.t("payment.wait")}</p>
         )}
         {this.props.paymentOption === "qr" ? (
           <img
-            className="m-pos-icon"
+            className="m7-pos-icon"
             src={require("../icons/POS-QR.svg")}
             alt="POS"
           />
         ) : (
           <img
-            className="m-pos-icon"
+            className="m7-pos-icon"
             src={require("../icons/POS-NFC.svg")}
             alt="POS"
           />
         )}
 
         <CdCounter
-          classname="m-counter"
+          classname="m7-counter"
           initialCount="60"
           interval="1000"
           dispcount="True"

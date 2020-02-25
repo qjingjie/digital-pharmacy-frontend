@@ -4,7 +4,7 @@ import { autoPlay } from "react-swipeable-views-utils";
 import RouteBtn from "./RouteBtn";
 
 const PointerIcon = () => (
-  <div className="ptr-icon">
+  <div className="m1-ptr-icon">
     <svg
       width="40"
       height="103"
@@ -21,7 +21,7 @@ const PointerIcon = () => (
   </div>
 );
 
-class LandingPage extends Component {
+class Landing extends Component {
   componentDidMount() {
     this.props.updateCart([], 0.0);
   }
@@ -30,23 +30,23 @@ class LandingPage extends Component {
     const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
     return (
-      <div className="l-app">
+      <div className="l0-app-container">
         <AutoPlaySwipeableViews
-          className="l-images"
+          className="l1-swipable-images"
           interval={parseInt("15000")} // Time interval between each image
         >
-          <div className="m-imgA" />
-          <div className="m-imgB" />
+          <div className="m1-imgA" />
+          <div className="m1-imgB" />
         </AutoPlaySwipeableViews>
 
-        <div className="m-begin-panel">
+        <div className="l1-begin-panel">
           <p> Touch Anywhere To Begin </p>
           <PointerIcon />
         </div>
-        <RouteBtn classname="m-hidden-btn" path="/selectionpage" />
+        <RouteBtn classname="m1-hidden-btn" path="/Selection" />
       </div>
     );
   }
 }
 
-export default LandingPage;
+export default Landing;

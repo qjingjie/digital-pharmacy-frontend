@@ -5,12 +5,12 @@ import RouteBtn from "./RouteBtn";
 
 function CartItems(props) {
   return (
-    <div className="m-cart-item">
-      <span className="m-cart-item-name">{props.name}</span>
-      <span className="m-cart-item-quantity">×{props.quantity}</span>
-      <span className="m-cart-item-price">${props.price}</span>
+    <div className="l3-cart-item-container">
+      <span className="m3-cart-item-name">{props.name}</span>
+      <span className="m3-cart-item-quantity">×{props.quantity}</span>
+      <span className="m3-cart-item-price">${props.price}</span>
       <button
-        className="m-cart-item-delete"
+        className="m3-cart-item-delete"
         type="button"
         onClick={props.handleDelete}
       ></button>
@@ -20,41 +20,41 @@ function CartItems(props) {
 
 function ItemInfo(props) {
   return (
-    <div className="m-iteminfo">
+    <div className="l3-iteminfo-container2">
       <div
-        className="m-iteminfo-img"
+        className="m3-iteminfo-img"
         style={{ backgroundImage: "url(" + props.img + ")" }}
       ></div>
       <button
-        className="m-close-btn"
+        className="m3-iteminfo-close"
         type="button"
         onClick={props.handleClose}
       ></button>
-      <span className="m-iteminfo-brand">{props.brand}</span>
-      <span className="m-iteminfo-name">{props.name}</span>
-      <span className="m-iteminfo-price">
+      <span className="m3-iteminfo-brand">{props.brand}</span>
+      <span className="m3-iteminfo-name">{props.name}</span>
+      <span className="m3-iteminfo-price">
         {props.t("general.price")}: ${props.price}
       </span>
-      <span className="m-iteminfo-stock">
+      <span className="m3-iteminfo-stock">
         {props.t("general.availstock")}: {props.stock}
       </span>
-      <span className="m-iteminfo-desc">
+      <span className="m3-iteminfo-desc">
         {props.t("general.description")}
         <br></br>
         {props.desc}
       </span>
-      <div className="m-iteminfo-counter">
+      <div className="l3-iteminfo-counter-container">
         <button
-          className="m-iteminfo-minus"
+          className="m3-iteminfo-minus"
           type="button"
           onClick={props.handleMinus}
           disabled={props.quantity <= 1 ? true : false}
         >
           -
         </button>
-        <div className="m-iteminfo-count">{props.quantity}</div>
+        <div className="m3-iteminfo-count">{props.quantity}</div>
         <button
-          className="m-iteminfo-plus"
+          className="m3-iteminfo-plus"
           type="button"
           onClick={props.handlePlus}
           disabled={props.quantity === props.stock ? true : false}
@@ -62,11 +62,11 @@ function ItemInfo(props) {
           +
         </button>
       </div>
-      <div className="m-iteminfo-subtotal">
+      <span className="m3-iteminfo-subtotal">
         {props.t("general.subtotal")}: ${props.subtotal}
-      </div>
+      </span>
       <button
-        className="m-iteminfo-addtocart"
+        className="m3-iteminfo-addtocart"
         type="button"
         onClick={props.handleAddToCart}
         disabled={props.stock === "0" ? true : false}
@@ -79,22 +79,22 @@ function ItemInfo(props) {
 
 function ItemCTA(props) {
   return (
-    <div className="l-item-cta">
+    <div className="l3-itemcta-container2">
       <button
-        className="m-item-cta"
+        className="m3-itemcta"
         style={{ backgroundImage: "url(" + props.img + ")" }}
         type="button"
         onClick={props.handleClick}
       >
-        <p className="m-item-cta-name">{props.name}</p>
-        <p className="m-item-cta-stock">{props.t("general.stock")}:</p>
+        <p className="m3-itemcta-name">{props.name}</p>
+        <p className="m3-itemcta-stock-label">{props.t("general.stock")}:</p>
         <p
-          className="m-item-cta-stock-qty"
+          className="m3-itemcta-stock"
           style={{ color: props.stock === "0" ? "red" : "green" }}
         >
           {props.stock}
         </p>
-        <p className="m-item-cta-price">${props.price}</p>
+        <p className="m3-itemcta-price">${props.price}</p>
       </button>
     </div>
   );
@@ -102,11 +102,11 @@ function ItemCTA(props) {
 
 function SideBar(props) {
   return (
-    <div className="m-sidebar">
+    <div className="l3-sidebar-container">
       {props.bottom ? (
         <div>
           <img
-            className="m-sidebar-up"
+            className="m3-sidebar-arrow-up"
             src={require("../icons/arrowup.svg")}
             alt="up"
           />
@@ -116,7 +116,7 @@ function SideBar(props) {
         <div>
           <p>{props.t("status.more")}</p>
           <img
-            className="m-sidebar-down"
+            className="m3-sidebar-arrow-down"
             src={require("../icons/arrowdown.svg")}
             alt="down"
           />
@@ -124,13 +124,13 @@ function SideBar(props) {
       ) : (
         <div>
           <img
-            className="m-sidebar-up"
+            className="m3-sidebar-arrow-up"
             src={require("../icons/arrowup.svg")}
             alt="up"
           />
           <p>{props.t("status.more")}</p>
           <img
-            className="m-sidebar-down"
+            className="m3-sidebar-arrow-down"
             src={require("../icons/arrowdown.svg")}
             alt="down"
           />
@@ -144,7 +144,7 @@ const SideBarWithTrans = withTranslation("common")(SideBar);
 const ItemCTAWithTrans = withTranslation("common")(ItemCTA);
 const ItemInfoWithTrans = withTranslation("common")(ItemInfo);
 
-class GslPage extends Component {
+class Gsl extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -367,12 +367,12 @@ class GslPage extends Component {
 
   render() {
     const cart_arr_down = (
-      <div className="m-cart-arrowdown">
+      <div className="m3-cart-arrow-down">
         <img src={require("../icons/arrowdown.svg")} alt="down" />
       </div>
     );
     const cart_arr_up = (
-      <div className="m-cart-arrowup">
+      <div className="m3-cart-arrow-up">
         <img src={require("../icons/arrowup.svg")} alt="up" />
       </div>
     );
@@ -383,7 +383,7 @@ class GslPage extends Component {
     }
 
     return (
-      <div className="l-gsl">
+      <div className="l3-page-container">
         {this.state.selected ? null : (
           <SideBarWithTrans
             bottom={this.state.isBottomList}
@@ -391,7 +391,7 @@ class GslPage extends Component {
           />
         )}
         {this.state.selected ? (
-          <div className="l-iteminfo">
+          <div className="l3-iteminfo-container">
             <ItemInfoWithTrans
               name={this.state.item_name}
               brand={this.state.item_brand}
@@ -410,7 +410,7 @@ class GslPage extends Component {
             />
           </div>
         ) : this.state.isLoaded ? (
-          <div className="l-items" onScroll={this.handleScroll}>
+          <div className="l3-itemcta-container" onScroll={this.handleScroll}>
             {this.state.items.medicines.map(item => (
               <ItemCTAWithTrans
                 key={item.name}
@@ -424,14 +424,23 @@ class GslPage extends Component {
           </div>
         ) : null}
 
-        <div className="l-cart-panel">
-          <div className="cart-header">{this.props.t("general.cart")}</div>
-          <div className="list-header">
-            <p className="item">{this.props.t("general.item")}</p>
-            <p className="qty">{this.props.t("general.quantity")}</p>
-            <p className="price">{this.props.t("general.subtotal")}</p>
+        <div className="l3-cart-container">
+          <h1 className="m3-cart-header">{this.props.t("general.cart")}</h1>
+          <div className="l3-cart-headings-container">
+            <h2 className="m3-cart-heading-item">
+              {this.props.t("general.item")}
+            </h2>
+            <h2 className="m3-cart-heading-quantity">
+              {this.props.t("general.quantity")}
+            </h2>
+            <h2 className="m3-cart-heading-price">
+              {this.props.t("general.subtotal")}
+            </h2>
           </div>
-          <div className="m-cart-list" onScroll={this.handleScrollCart}>
+          <div
+            className="l3-cart-list-container"
+            onScroll={this.handleScrollCart}
+          >
             {this.state.cart.map(item => (
               <CartItems
                 key={item.name}
@@ -442,31 +451,31 @@ class GslPage extends Component {
               />
             ))}
           </div>
-          <div className="m-cart-arrow-container">
+          <div className="l3-cart-arrow-container">
             {this.state.exceedBd
               ? this.state.isBottomCart
                 ? cart_arr_up
                 : cart_arr_down
               : null}
           </div>
-          <div className="l-price-container">
-            <p className="tprice-label">{this.props.t("general.tprice")}</p>
-            <p className="tprice-amt">${this.state.tprice}</p>
+          <div className="l3-cart-price-container">
+            <p className="m3-tprice-label">{this.props.t("general.tprice")}</p>
+            <p className="m3-tprice">${this.state.tprice}</p>
           </div>
           <RouteBtn
-            classname="m-checkout-cta"
-            path="/selectpayment"
+            classname="m3-checkout-cta"
+            path="/SelPay"
             text={this.props.t("general.payment")}
             chkCart="True"
             tprice={parseInt(this.state.tprice)}
             handleEmpty={this.handleEmpty}
           />
 
-          <div className="m-error-prompt">{this.state.emptyText}</div>
+          <div className="m3-error-prompt">{this.state.emptyText}</div>
         </div>
       </div>
     );
   }
 }
 
-export default withTranslation("common")(GslPage);
+export default withTranslation("common")(Gsl);

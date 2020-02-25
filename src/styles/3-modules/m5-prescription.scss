@@ -1,0 +1,255 @@
+$PrimaryFont: whitesmoke;
+$Orange: #e79b25;
+
+// ==================================================================================
+// module container: l5-prescription-info-container
+.m5-nric,
+.m5-prescription-id,
+.m5-valid-date {
+  margin-left: 40px;
+  font-size: 16px;
+  font-weight: normal;
+}
+// ==================================================================================
+// module container: l5-email-message-container
+.m5-email-message {
+  width: 100%;
+  height: 80px;
+
+  margin: 0px;
+
+  color: $PrimaryFont;
+  font-size: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  border-right: solid $PrimaryFont;
+
+  padding-left: 20px;
+  padding-right: 10px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.m5-email-question {
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+
+  align-items: center;
+
+  margin-left: 40px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  color: $PrimaryFont;
+}
+
+.m5-slider-switch {
+  position: absolute;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  right: 30px;
+  top: 30px;
+
+  border-radius: 40px;
+
+  input {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    outline: none;
+  }
+
+  span {
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: 0.4s;
+
+    border-radius: 40px;
+
+    display: flex;
+
+    color: $PrimaryFont;
+
+    p {
+      width: 50%;
+      margin: 0px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  span:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 32px;
+    left: 4px;
+    bottom: 4px;
+    background-color: $PrimaryFont;
+    transition: 0.4s;
+
+    border-radius: 16px;
+  }
+
+  input:checked + span {
+    background-color: $Orange;
+  }
+
+  input:focus + span {
+    box-shadow: 0 0 1px $Orange;
+  }
+
+  input:checked + span:before {
+    transform: translateX(40px);
+  }
+}
+// ==================================================================================
+// module container: l5-prescription-headings-container
+.m5-headings-left-align {
+  height: 100%;
+
+  margin-left: 10px;
+  margin-top: 0px;
+
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: normal;
+
+  color: $PrimaryFont;
+}
+
+.m5-headings-center-align {
+  width: 100px;
+  text-align: center;
+  color: $PrimaryFont;
+
+  margin: auto;
+  font-size: 16px;
+  font-weight: normal;
+}
+// ==================================================================================
+// module container: l5-prescription-item-container
+.m5-item-left-align {
+  height: 100%;
+
+  display: flex;
+  text-align: left;
+  align-items: center;
+
+  color: $PrimaryFont;
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.m5-item-center-align {
+  display: flex;
+  text-align: center;
+  color: $PrimaryFont;
+  align-items: center;
+  margin: auto;
+}
+// ==================================================================================
+// module container: l5-prescription-qty-container
+.m5-plus,
+.m5-minus {
+  width: 35px;
+  height: 35px;
+
+  margin: auto;
+
+  border-radius: 25px;
+  font-size: 16px;
+
+  color: $PrimaryFont;
+
+  box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.35),
+    inset 0px 0px 3px 0px rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.1);
+
+  outline: none;
+}
+
+.m5-plus:active,
+.m5-minus:active {
+  background-color: $Orange;
+}
+
+.m5-plus:disabled,
+.m5-minus:disabled {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.m5-qty-center-align {
+  width: 85%;
+  height: 50px;
+
+  border-radius: 15px;
+  font-size: 24px;
+
+  display: inline;
+  text-align: center;
+
+  line-height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+// ==================================================================================
+// module container: l5-prescription-total-container
+.m5-presriptionc-total-label {
+  font-size: 16px;
+  margin: 0px;
+
+  display: flex;
+  align-items: flex-end;
+
+  opacity: 0.8;
+}
+
+.m5-prescription-total {
+  font-size: 36px;
+  margin: 0px;
+  margin-left: 10px;
+}
+
+.m5-checkoutpresc-cta {
+  position: absolute;
+  width: 450px;
+  height: 60px;
+  bottom: 1.5%;
+  right: 0.5%;
+
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+  font-size: 22px;
+  font-weight: bold;
+  color: $PrimaryFont;
+
+  background-color: $Orange;
+  border: none;
+  border-radius: 10px;
+
+  outline: none;
+}
+// ==================================================================================
+// module container: l5-prescription-panel-container
+.m-checkoutpresc-cta:active {
+  background-color: darken($Orange, 10%);
+  color: darken($PrimaryFont, 10%);
+}

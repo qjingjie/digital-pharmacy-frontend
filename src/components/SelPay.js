@@ -24,24 +24,26 @@ class SelPay extends Component {
       return <Redirect push to="/" />;
     }
     return (
-      <div className="l-selpay">
-        <div className="l-text-container">
-          <p className="m-payment-text">{this.props.t("selpay.helper")}</p>
-          <p className="m-payment-price">
+      <div className="l6-page-container">
+        <div className="l6-headings-container">
+          <h1 className="m6-payment-heading">
+            {this.props.t("selpay.helper")}
+          </h1>
+          <h2 className="m6-payment-price">
             {this.props.t("general.tprice")}: $
             {parseFloat(this.props.tpriceMem).toFixed(2)}
-          </p>
-          <div className="m-payment-container">
+          </h2>
+          <div className="l6-payment-container">
             <RouteBtn
-              classname="m-payment-1"
-              path="/payment"
+              classname="m6-payment-1"
+              path="/Payment"
               text={this.props.t("selpay.credit")}
               payment="True"
               updatePayment={() => this.props.updatePayment("credit")}
             />
             <RouteBtn
-              classname="m-payment-2"
-              path="/payment"
+              classname="m6-payment-2"
+              path="/Payment"
               text={this.props.t("selpay.qr")}
               payment="True"
               updatePayment={() => this.props.updatePayment("qr")}

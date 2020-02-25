@@ -1,0 +1,16 @@
+.l6-headings-container {
+  width: 100vw;
+
+  text-align: center;
+}
+
+.l6-payment-container {
+  height: 250px;
+  width: 700px;
+
+  margin-top: 70px;
+  margin-left: calc((100vw - 700px) / 2);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

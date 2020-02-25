@@ -5,24 +5,24 @@ import RouteBtn from "./RouteBtn";
 
 function PrescItem(props) {
   return (
-    <div className="l-presc-item">
+    <div className="l5-prescription-item-container">
       <img src={props.img} alt="medicine" />
 
-      <p className="l-left">{props.name}</p>
+      <p className="m5-item-left-align">{props.name}</p>
 
-      <p className="l-center">×{props.presc_quantity}</p>
-      <div className="l-presc-qty-container">
+      <p className="m5-item-center-align">×{props.presc_quantity}</p>
+      <div className="l5-prescription-qty-container">
         <button
-          className="m-minus"
+          className="m5-minus"
           type="button"
           onClick={() => props.minus(props.id)}
           disabled={props.purchasing === 0 ? true : false}
         >
           -
         </button>
-        <p className="l-center">{props.purchasing}</p>
+        <p className="m5-qty-center-align">{props.purchasing}</p>
         <button
-          className="m-plus"
+          className="m5-plus"
           type="button"
           onClick={() => props.plus(props.id)}
           disabled={
@@ -36,15 +36,17 @@ function PrescItem(props) {
           +
         </button>
       </div>
-      <p className="l-center">×{props.purchased}</p>
+      <p className="m5-item-center-align">×{props.purchased}</p>
       <p
-        className="l-center"
+        className="m5-item-center-align"
         style={{ color: props.stock === 0 ? "red" : "green" }}
       >
         {props.stock}
       </p>
-      <p className="l-center">${props.price}</p>
-      <p className="l-center">${(props.purchasing * props.price).toFixed(2)}</p>
+      <p className="m5-item-center-align">${props.price}</p>
+      <p className="m5-item-center-align">
+        ${(props.purchasing * props.price).toFixed(2)}
+      </p>
     </div>
   );
 }
@@ -178,21 +180,21 @@ class Prescription extends Component {
       return <Redirect push to="/" />;
     }
     return (
-      <div className="l-prescription">
-        <div className="l-prescription-info">
-          <p className="m-nric">Nric: {this.state.nric}</p>
-          <p className="m-prescribe-id">
+      <div className="l5-page-container">
+        <div className="l5-prescription-info-container">
+          <h1 className="m5-nric">Nric: {this.state.nric}</h1>
+          <h1 className="m5-prescription-id">
             Prescription ID: {this.state.presc_id}
-          </p>
-          <p className="m-valid-date">Valid till: {this.state.valid_till}</p>
+          </h1>
+          <h1 className="m5-valid-date">Valid till: {this.state.valid_till}</h1>
         </div>
-        <div className="l-email-msg">
-          <p className="l-email-message">
+        <div className="l5-email-message-container">
+          <p className="m5-email-message">
             Medicine usage instructions will be sent to your provided email
             address if the email service option is selected.{" "}
           </p>
-          <p className="l-email-ques">Currently subscribed to email service?</p>
-          <label className="m-slider-switch">
+          <p className="m5-email-question">Subscribed to email service:</p>
+          <label className="m5-slider-switch">
             <input
               type="checkbox"
               defaultChecked={this.state.email_sub}
@@ -204,17 +206,26 @@ class Prescription extends Component {
             </span>
           </label>
         </div>
-        <div className="l-presc-panel-container">
-          <div className="l-presc-headings">
-            <p className="l-left">{this.props.t("general.item")}</p>
-            <p className="l-center">Prescribed Quantity</p>
-            <p className="l-center">Selected Quantity</p>
-            <p className="l-center">Previously Purchased</p>
-            <p className="l-center"> {this.props.t("general.stock")}</p>
-            <p className="l-center">{this.props.t("general.price")}</p>
-            <p className="l-center">{this.props.t("general.subtotal")}</p>
+        <div className="l5-prescription-panel-container">
+          <div className="l5-prescription-headings-container">
+            <h2 className="m5-headings-left-align">
+              {this.props.t("general.item")}
+            </h2>
+            <h2 className="m5-headings-center-align">Prescribed Quantity</h2>
+            <h2 className="m5-headings-center-align">Selected Quantity</h2>
+            <h2 className="m5-headings-center-align">Previously Purchased</h2>
+            <h2 className="m5-headings-center-align">
+              {" "}
+              {this.props.t("general.stock")}
+            </h2>
+            <h2 className="m5-headings-center-align">
+              {this.props.t("general.price")}
+            </h2>
+            <h2 className="m5-headings-center-align">
+              {this.props.t("general.subtotal")}
+            </h2>
           </div>
-          <div className="l-presc-list-container">
+          <div className="l5-prescription-list-container">
             {this.state.isLoaded
               ? this.state.medicines.map(item => (
                   <PrescItem
@@ -233,23 +244,23 @@ class Prescription extends Component {
                 ))
               : null}
           </div>
-          <div className="m-presc-arrow-container"></div>
+          <div className="l5-presc-arrow-container"></div>
           {this.state.renderEmpty ? (
-            <div className="m-empty-prompt">
+            <div className="l5-empty-prompt-container">
               <button type="button" onClick={this.handleClose}>
                 OK
               </button>
             </div>
           ) : null}
-          <div className="l-presc-total-container">
-            <p className="l-presc-total-label">
+          <div className="l5-prescription-total-container">
+            <p className="m5-prescription-total-label">
               {this.props.t("general.tprice")}:
             </p>{" "}
-            <p className="l-presc-total-price">${this.state.tprice}</p>
+            <p className="m5-prescription-total">${this.state.tprice}</p>
           </div>
           <RouteBtn
-            classname="m-checkoutpresc-cta"
-            path="/selectpayment"
+            classname="m5-checkoutpresc-cta"
+            path="/SelPay"
             text={this.props.t("general.payment")}
             chkCart="True"
             tprice={parseInt(this.state.tprice)}

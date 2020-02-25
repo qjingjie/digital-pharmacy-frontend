@@ -1,0 +1,24 @@
+$PrimaryFont: whitesmoke;
+$Orange: #e79b25;
+
+// ==================================================================================
+// module container: l11-numkeyboard2fa-container
+.m11-code2fa-box {
+  width: 55px;
+  height: 80px;
+
+  margin-left: 10px;
+  border-radius: 10px;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+
+  p {
+    color: $PrimaryFont;
+    font-size: 32px;
+    margin: auto;
+  }
+}

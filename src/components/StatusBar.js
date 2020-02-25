@@ -119,25 +119,25 @@ class StatusBar extends Component {
   render() {
     return (
       <header>
-        <BackBtn name="m-back" text={this.props.t("status.back")} />
+        <BackBtn name="m10-back" text={this.props.t("status.back")} />
         <button
-          className="m-langswitch"
+          className="m10-langswitch"
           type="button"
           onClick={this.handleClick}
         >
           {this.state.lang_dis}
         </button>
-        <div className="m-clk">
-          <p className="day"> {this.props.t(this.state.day)} </p>
-          <p className="line1"> </p>
-          <p className="date"> {this.state.date} </p>
-          <p className="month"> {this.props.t(this.state.month)} </p>
-          <p className="year"> {this.state.year} </p>
-          <p className="line2"> </p>
-          <p className="time">
+        <div className="l10-clk-container">
+          <p className="m10-day"> {this.props.t(this.state.day)} </p>
+          <p className="m10-line1"> </p>
+          <p className="m10-date"> {this.state.date} </p>
+          <p className="m10-month"> {this.props.t(this.state.month)} </p>
+          <p className="m10-year"> {this.state.year} </p>
+          <p className="m10-line2"> </p>
+          <p className="m10-time">
             {this.state.hour}:{this.state.minute}
           </p>
-          <p className="am_pm"> {this.props.t(this.state.am_pm)} </p>
+          <p className="m10-am_pm"> {this.props.t(this.state.am_pm)} </p>
         </div>
       </header>
     );

@@ -143,46 +143,46 @@ class Collection extends Component {
     }
     return (
       <div>
-        <div className="l-general-info">
+        <div className="l8-general-info-container">
           {this.state.progress === 100 ? (
             <div>
-              <p className="m-heading-completed-tk">
+              <h1 className="m8-heading-completed-tk">
                 {this.props.t("collection.thank")}
-              </p>
-              <p className="m-heading-completed-rate">
+              </h1>
+              <h2 className="m8-heading-completed-rate">
                 {this.props.t("collection.rate")}
-              </p>
-              <div className="m-rating-container">
+              </h2>
+              <div className="l8-rating-container">
                 <Star
-                  classname="m-star-1"
+                  classname="m8-star-1"
                   fill={this.state.star1_fill}
                   size={this.state.star1_size}
                   disable={this.state.disabled}
                   handle={() => this.handleRate("1")}
                 />
                 <Star
-                  classname="m-star-2"
+                  classname="m8-star-2"
                   fill={this.state.star2_fill}
                   size={this.state.star2_size}
                   disable={this.state.disabled}
                   handle={() => this.handleRate("2")}
                 />
                 <Star
-                  classname="m-star-3"
+                  classname="m8-star-3"
                   fill={this.state.star3_fill}
                   size={this.state.star3_size}
                   disable={this.state.disabled}
                   handle={() => this.handleRate("3")}
                 />
                 <Star
-                  classname="m-star-4"
+                  classname="m8-star-4"
                   fill={this.state.star4_fill}
                   size={this.state.star4_size}
                   disable={this.state.disabled}
                   handle={() => this.handleRate("4")}
                 />
                 <Star
-                  classname="m-star-5"
+                  classname="m8-star-5"
                   fill={this.state.star5_fill}
                   size={this.state.star5_size}
                   disable={this.state.disabled}
@@ -190,7 +190,7 @@ class Collection extends Component {
                 />
               </div>
               <RouteBtn
-                classname="m-home"
+                classname="m8-home"
                 path="/"
                 chkcart="False"
                 payment="False"
@@ -198,21 +198,21 @@ class Collection extends Component {
             </div>
           ) : (
             <div>
-              <p className="m-heading-inprogress">
+              <p className="m8-heading-inprogress">
                 {this.props.t("collection.wait")}
               </p>
-              <p className="m-check-usage">
+              <p className="m8-check-usage">
                 {this.props.t("collection.check")}
               </p>
             </div>
           )}
 
           {this.state.disabled ? (
-            <p className="m-rated">{this.props.t("collection.rated")}</p>
+            <p className="m8-rated">{this.props.t("collection.rated")}</p>
           ) : null}
 
           <div
-            className="m-progress-bar"
+            className="m8-progress-bar"
             style={{ "--width": this.state.progress }}
           >
             {this.state.progress === 100 ? (
@@ -223,8 +223,8 @@ class Collection extends Component {
           </div>
         </div>
 
-        <div className="l-purchased-panel">
-          <div className="m-arrow-container"></div>
+        <div className="l8-purchased-container">
+          <div className="m8-arrow-container"></div>
         </div>
       </div>
     );

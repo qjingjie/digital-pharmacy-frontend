@@ -1,0 +1,102 @@
+$PrimaryFont: whitesmoke;
+
+.m10-back,
+.m10-langswitch {
+  position: absolute;
+  height: 30px;
+
+  outline: none;
+
+  background: none;
+
+  //border: 1px solid $PrimaryFont;
+  border: none;
+  border-radius: 15px;
+
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+  font-size: 20px;
+  font-weight: normal;
+  color: $PrimaryFont;
+
+  margin-top: 10px;
+
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35),
+    inset 0px 0px 5px 0px rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+}
+
+.m10-back {
+  width: 100px;
+  left: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  .back-icon {
+    width: 20px;
+    height: 12px;
+
+    margin-bottom: 9px;
+    margin-left: auto;
+  }
+
+  p {
+    margin: 0px;
+    margin-right: auto;
+  }
+}
+
+.m10-back:active {
+  background-color: rgba(245, 245, 245, 0.8);
+}
+
+.m10-langswitch {
+  width: 70px;
+  left: 120px;
+}
+
+.m10-langswitch:active {
+  background-color: rgba(245, 245, 245, 0.8);
+}
+
+// ==================================================================================
+// module container: l10-clk-container
+.m10-line1,
+.m10-line2 {
+  width: 0px;
+  height: 4vh;
+
+  margin: 0px;
+  border: 0.5px inset rgba(0, 0, 0, 0.25);
+}
+
+.m10-day,
+.m10-date,
+.m10-month,
+.m10-year,
+.m10-time,
+.m10-am_pm {
+  margin-top: 5px;
+  padding: 0px;
+}
+
+.m10-date,
+.m10-month,
+.m10-time {
+  margin-right: 5px;
+}
+
+.m10-day,
+.m10-year,
+.m10-am_pm {
+  margin-right: auto;
+}
+
+.m10-day,
+.m10-date,
+.m10-time {
+  margin-left: auto;
+}
