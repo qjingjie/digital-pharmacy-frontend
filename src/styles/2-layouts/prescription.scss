@@ -12,6 +12,14 @@ $PrimaryFont: whitesmoke;
   color: $PrimaryFont;
 }
 
+.l-email-msg {
+  position: relative;
+  background-color: red;
+  width: 50%;
+  height: 100px;
+  display: grid;
+}
+
 .l-presc-panel-container {
   position: absolute;
   width: calc(100% - 20px);

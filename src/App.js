@@ -27,7 +27,13 @@ function WithStatusBar(props) {
           )}
         />
         <Route exact path="/getpresc" component={GetPrescPage} />
-        <Route exact path="/prescription" component={Prescription} />
+        <Route
+          exact
+          path="/prescription"
+          render={props6 => (
+            <Prescription {...props6} updateCart={props.updateCart} />
+          )}
+        />
         <Route exact path="/management" component={Management} />
         <Route
           exact
@@ -71,16 +77,26 @@ class App extends Component {
     this.updatePayment = this.updatePayment.bind(this);
   }
 
-  updateCart(newCart, newPrice) {
+  updateCart(newCart, newPrice, is_Presc = false) {
     var i,
       item_count = 0;
 
-    if (newCart.length !== 0) {
-      for (i = 0; i < newCart.length; i++) {
-        item_count += newCart[i].quantity;
+    if (!is_Presc) {
+      if (newCart.length !== 0) {
+        for (i = 0; i < newCart.length; i++) {
+          item_count += newCart[i].quantity;
+        }
+      } else {
+        item_count = 0;
       }
     } else {
-      item_count = 0;
+      if (newCart.length !== 0) {
+        for (i = 0; i < newCart.length; i++) {
+          item_count += newCart[i].purchasing;
+        }
+      } else {
+        item_count = 0;
+      }
     }
 
     this.setState({ cart: newCart, tprice: newPrice, item_count: item_count });
