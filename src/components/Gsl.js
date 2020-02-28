@@ -294,9 +294,12 @@ class Gsl extends Component {
   handleAddToCart() {
     var new_item = {
       id: this.state.item_id,
+      brand: this.state.item_brand,
       name: this.state.item_name,
       quantity: this.state.quantity,
-      subtotal: this.state.subtotal
+      subtotal: this.state.subtotal,
+      description: this.state.desc,
+      pic: this.state.img
     };
 
     var i;

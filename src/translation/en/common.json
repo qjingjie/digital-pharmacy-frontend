@@ -55,7 +55,8 @@
   "getpresc": {
     "qr": "Please scan the QR code found on your prescription.",
     "helper2fa": "Please enter the 2FA code sent to your registered email.",
-    "incorrect": "The code that you have entered is incorrect, please try again."
+    "incorrect": "The code that you have entered is incorrect, please try again.",
+    "qr_error": "Invalid QR code detected, please try again."
   },
   "selpay": {
     "helper": "Please Select A Payment Option",

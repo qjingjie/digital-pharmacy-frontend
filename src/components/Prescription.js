@@ -94,6 +94,11 @@ class Prescription extends Component {
           data.medicines.medicine[i]["purchasing"] =
             data.medicines.medicine[i].quantity -
             data.medicines.medicine[i].collected;
+
+          data.medicines.medicine[i]["subtotal"] =
+            (data.medicines.medicine[i].quantity -
+              data.medicines.medicine[i].collected) *
+            data.medicines.medicine[i].price;
         }
 
         this.setState({
@@ -142,8 +147,7 @@ class Prescription extends Component {
         ) {
           med_list[i].purchasing += 1;
           total += parseFloat(med_list[i].price);
-
-          console.log(total);
+          med_list[i].subtotal = med_list[i].purchasing * med_list[i].price;
         }
       }
     }
@@ -160,6 +164,7 @@ class Prescription extends Component {
         if (med_list[i].purchasing - 1 >= 0) {
           med_list[i].purchasing -= 1;
           total -= parseFloat(med_list[i].price);
+          med_list[i].subtotal = med_list[i].purchasing * med_list[i].price;
         }
       }
     }

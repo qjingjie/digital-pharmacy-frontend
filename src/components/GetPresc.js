@@ -106,7 +106,8 @@ class GetPresc extends Component {
     super(props);
     this.state = {
       redirect: false,
-      qr_scanned: false
+      qr_scanned: false,
+      error: false
     };
 
     this.handleTimeout = this.handleTimeout.bind(this);
@@ -129,19 +130,15 @@ class GetPresc extends Component {
   }
 
   chkQR() {
-    var jsonOut = { qr: true };
-
-    fetch("/qrcode/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(jsonOut)
-    }).then(response =>
+    fetch("/qrcode/").then(response =>
       response.json().then(data => {
         if (data === "manage") {
           this.props.history.push("/Management");
         } else {
           if (data === "True") {
             this.setState({ qr_scanned: true });
+          } else {
+            this.setState({ error: true });
           }
         }
       })
@@ -151,6 +148,10 @@ class GetPresc extends Component {
   render() {
     if (this.state.redirect) {
       return <Redirect push to="/" />;
+    }
+
+    if (this.state.error) {
+      this.chkQR();
     }
     return (
       <div className="l4-page-container">
@@ -162,7 +163,14 @@ class GetPresc extends Component {
             timeoutText={this.props.t("general.timeout")}
           />
         ) : (
-          <AwaitQR text={this.props.t("getpresc.qr")} handle={this.chkQR} />
+          <AwaitQR
+            text={
+              this.state.error
+                ? this.props.t("getpresc.qr_error")
+                : this.props.t("getpresc.qr")
+            }
+            handle={this.chkQR}
+          />
         )}
         {/*<ReactPlayer
           className="m-react-player"

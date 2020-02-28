@@ -200,17 +200,47 @@ $PrimaryFont: whitesmoke;
   }
 }
 // ==================================================================================
-// module container: l8-purchased-container
-.m8-arrow-container {
+// module container: l8-iteminfo-container
+.m8-iteminfo-img {
   position: absolute;
+  width: 200px;
+  height: 200px;
 
+  margin-left: calc((100% - 200px) / 2);
+  margin-top: 10px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.m8-iteminfo-brand {
+  position: absolute;
+  top: 220px;
   width: 100%;
-  height: 50px;
-  bottom: 0px;
-  left: 0px;
+  text-align: center;
 
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  color: darken($PrimaryFont, 10%);
+  font-size: 16px;
+}
 
-  background-color: rgba(255, 255, 255, 0.25);
+.m8-iteminfo-name {
+  position: absolute;
+  top: 240px;
+  width: 100%;
+
+  font-size: 26px;
+  text-align: center;
+  color: $PrimaryFont;
+}
+
+.m8-iteminfo-desc-label {
+  position: absolute;
+  top: 300px;
+
+  width: 90%;
+  height: 35%;
+  margin-left: 5%;
+  color: $PrimaryFont;
+  font-size: 16px;
 }

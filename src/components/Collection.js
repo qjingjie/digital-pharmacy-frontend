@@ -29,14 +29,13 @@ const Star = props => (
 
 function ItemCTA(props) {
   return (
-    <div className="l8-itemcta-container">
+    <div className="l8-itemcta-container2">
       <button
-        className="m8-itemcta"
         style={{ backgroundImage: "url(" + props.img + ")" }}
         type="button"
         onClick={props.handleClick}
       >
-        <p className="m8-itemcta-name">{props.name}</p>
+        <p>{props.name}</p>
       </button>
     </div>
   );
@@ -49,11 +48,10 @@ function ItemInfo(props) {
         className="m8-iteminfo-img"
         style={{ backgroundImage: "url(" + props.img + ")" }}
       ></div>
-      <button
-        className="m8-iteminfo-close"
-        type="button"
-        onClick={props.handleClose}
-      ></button>
+      <button type="button" onClick={props.handleClose}>
+        {" "}
+        OK
+      </button>
       <span className="m8-iteminfo-brand">{props.brand}</span>
       <span className="m8-iteminfo-name">{props.name}</span>
       <span className="m8-iteminfo-desc-label">
@@ -66,6 +64,8 @@ function ItemInfo(props) {
     </div>
   );
 }
+
+const ItemInfoWithTrans = withTranslation("common")(ItemInfo);
 
 class Collection extends Component {
   constructor(props) {
@@ -86,10 +86,23 @@ class Collection extends Component {
       star4_fill: "rgba(255, 255, 255, 0.25)",
       star4_size: "scale(1)",
       star5_fill: "rgba(255, 255, 255, 0.25)",
-      star5_size: "scale(1)"
+      star5_size: "scale(1)",
+
+      selected: false,
+
+      // For ItemInfo
+      item_id: "",
+      item_brand: "",
+      item_name: "",
+      stock: 0,
+      desc: "",
+      img: "",
+      cart: this.props.cartMem
     };
 
     this.handleRate = this.handleRate.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount() {
@@ -99,6 +112,7 @@ class Collection extends Component {
         .then(data => {
           if (data === "Done") {
             this.setState({ compeleted: true });
+            clearInterval(this.check);
           }
         });
     }, 2000);
@@ -172,6 +186,34 @@ class Collection extends Component {
         disabled: true
       });
     }
+  }
+
+  handleClick(identifier) {
+    var i;
+    for (i = 0; i < this.state.cart.length; i++) {
+      if (this.state.cart[i].id === identifier) {
+        this.setState({
+          selected: true,
+          item_id: identifier,
+          item_brand: this.state.cart[i].brand,
+          item_name: this.state.cart[i].name,
+          desc: this.state.cart[i].description,
+          img: this.state.cart[i].pic
+        });
+        break;
+      }
+    }
+  }
+
+  handleClose() {
+    this.setState({
+      selected: false,
+      item_id: "",
+      item_brand: "",
+      item_name: "",
+      desc: "",
+      img: ""
+    });
   }
   render() {
     if (this.state.disabled === true) {
@@ -260,7 +302,28 @@ class Collection extends Component {
         </div>
 
         <div className="l8-purchased-container">
-          <div className="m8-arrow-container"></div>
+          {this.state.selected ? (
+            <ItemInfoWithTrans
+              name={this.state.item_name}
+              brand={this.state.item_brand}
+              id={this.state.selected_id}
+              desc={this.state.desc}
+              img={this.state.img}
+              handleClose={this.handleClose}
+            />
+          ) : (
+            <div className="l8-itemcta-container">
+              {this.state.cart.map(item => (
+                <ItemCTA
+                  key={item.name}
+                  name={item.name}
+                  img={item.pic}
+                  handleClick={() => this.handleClick(item.id)}
+                ></ItemCTA>
+              ))}
+            </div>
+          )}
+          <div className="l8-arrow-container"></div>
         </div>
       </div>
     );
