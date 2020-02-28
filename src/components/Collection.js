@@ -27,6 +27,46 @@ const Star = props => (
   </div>
 );
 
+function ItemCTA(props) {
+  return (
+    <div className="l8-itemcta-container">
+      <button
+        className="m8-itemcta"
+        style={{ backgroundImage: "url(" + props.img + ")" }}
+        type="button"
+        onClick={props.handleClick}
+      >
+        <p className="m8-itemcta-name">{props.name}</p>
+      </button>
+    </div>
+  );
+}
+
+function ItemInfo(props) {
+  return (
+    <div className="l8-iteminfo-container">
+      <div
+        className="m8-iteminfo-img"
+        style={{ backgroundImage: "url(" + props.img + ")" }}
+      ></div>
+      <button
+        className="m8-iteminfo-close"
+        type="button"
+        onClick={props.handleClose}
+      ></button>
+      <span className="m8-iteminfo-brand">{props.brand}</span>
+      <span className="m8-iteminfo-name">{props.name}</span>
+      <span className="m8-iteminfo-desc-label">
+        {props.t("general.description")}
+        <br></br>
+        <div className="l8-iteminfo-desc-container">
+          <p>{props.desc}</p>
+        </div>
+      </span>
+    </div>
+  );
+}
+
 class Collection extends Component {
   constructor(props) {
     super(props);
@@ -53,22 +93,15 @@ class Collection extends Component {
   }
 
   componentDidMount() {
-    // var jsonOut = { cart: this.props.cartMem };
-    console.log("here");
-
-    // Send cart items to backend server
-    // fetch("/updateDBOTC/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(jsonOut)
-    // });
-    // .then(response =>
-    //   response.json().then(data => {
-    //     if (data === "Done") {
-    //       this.setState({ compeleted: true });
-    //     }
-    //   })
-    // );
+    this.check = setInterval(() => {
+      fetch("/finishcollection/")
+        .then(response => response.json())
+        .then(data => {
+          if (data === "Done") {
+            this.setState({ compeleted: true });
+          }
+        });
+    }, 2000);
 
     var time_est = 8000; // Time estimate in ms for the collection of each item
 
@@ -84,6 +117,7 @@ class Collection extends Component {
 
   componentWillUnmount() {
     clearInterval(this.interval);
+    clearInterval(this.check);
   }
 
   handleRate(rating) {

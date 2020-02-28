@@ -38,10 +38,12 @@ function ItemInfo(props) {
       <span className="m3-iteminfo-stock">
         {props.t("general.availstock")}: {props.stock}
       </span>
-      <span className="m3-iteminfo-desc">
+      <span className="m3-iteminfo-desc-label">
         {props.t("general.description")}
         <br></br>
-        {props.desc}
+        <div className="l3-iteminfo-desc-container">
+          <p>{props.desc}</p>
+        </div>
       </span>
       <div className="l3-iteminfo-counter-container">
         <button
@@ -87,13 +89,15 @@ function ItemCTA(props) {
         onClick={props.handleClick}
       >
         <p className="m3-itemcta-name">{props.name}</p>
-        <p className="m3-itemcta-stock-label">{props.t("general.stock")}:</p>
-        <p
-          className="m3-itemcta-stock"
-          style={{ color: props.stock === "0" ? "red" : "green" }}
-        >
-          {props.stock}
-        </p>
+        <div className="l3-itemcta-stock-container">
+          <p className="m3-itemcta-stock-label">{props.t("general.stock")}:</p>
+          <p
+            className="m3-itemcta-stock"
+            style={{ color: props.stock === "0" ? "red" : "green" }}
+          >
+            {props.stock}
+          </p>
+        </div>
         <p className="m3-itemcta-price">${props.price}</p>
       </button>
     </div>
