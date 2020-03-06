@@ -64,6 +64,8 @@ class Prescription extends Component {
       valid_till: null,
       medicines: null,
       email_sub: null,
+      isBottomList: false,
+      exceedBd: false,
 
       tprice: 0,
       renderEmpty: false
@@ -73,6 +75,7 @@ class Prescription extends Component {
     this.handleClose = this.handleClose.bind(this);
     this.handlePlus = this.handlePlus.bind(this);
     this.handleMinus = this.handleMinus.bind(this);
+    this.handleScrollList = this.handleScrollList.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
@@ -108,7 +111,8 @@ class Prescription extends Component {
           valid_till: data.medicines.ValidDate,
           medicines: data.medicines.medicine,
           isLoaded: true,
-          tprice: total.toFixed(2)
+          tprice: total.toFixed(2),
+          exceedBd: data.medicines.medicine.length > 3 ? true : false
         });
       });
   }
@@ -174,6 +178,16 @@ class Prescription extends Component {
     });
   }
 
+  handleScrollList = e => {
+    const bottomList = e.target.scrollHeight - e.target.scrollTop <= 345;
+
+    if (bottomList) {
+      this.setState({ isBottomList: true });
+    } else {
+      this.setState({ isBottomList: false });
+    }
+  };
+
   toggle() {
     this.setState(state => ({
       email_sub: !state.email_sub
@@ -181,6 +195,16 @@ class Prescription extends Component {
   }
 
   render() {
+    const cart_arr_down = (
+      <div className="m5-cart-arrow-down">
+        <img src={require("../icons/arrowdown.svg")} alt="down" />
+      </div>
+    );
+    const cart_arr_up = (
+      <div className="m5-cart-arrow-up">
+        <img src={require("../icons/arrowup.svg")} alt="up" />
+      </div>
+    );
     if (this.state.redirect) {
       return <Redirect push to="/" />;
     }
@@ -230,7 +254,10 @@ class Prescription extends Component {
               {this.props.t("general.subtotal")}
             </h2>
           </div>
-          <div className="l5-prescription-list-container">
+          <div
+            className="l5-prescription-list-container"
+            onScroll={this.handleScrollList}
+          >
             {this.state.isLoaded
               ? this.state.medicines.map(item => (
                   <PrescItem
@@ -249,9 +276,16 @@ class Prescription extends Component {
                 ))
               : null}
           </div>
-          <div className="l5-presc-arrow-container"></div>
+          <div className="l5-presc-arrow-container">
+            {this.state.exceedBd
+              ? this.state.isBottomList
+                ? cart_arr_up
+                : cart_arr_down
+              : null}
+          </div>
           {this.state.renderEmpty ? (
             <div className="l5-empty-prompt-container">
+              <p>Please ensure at least one item is selected.</p>
               <button type="button" onClick={this.handleClose}>
                 OK
               </button>

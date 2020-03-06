@@ -60,6 +60,7 @@ $Orange: #e79b25;
   border-bottom: solid $PrimaryFont;
 
   opacity: 0.8;
+  z-index: 1;
 }
 
 .l5-prescription-list-container {
@@ -84,6 +85,8 @@ $Orange: #e79b25;
   height: calc(100% / 3);
 
   display: grid;
+
+  scroll-snap-align: start;
 
   grid-template-columns: 0.8fr 1.2fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
@@ -114,6 +117,7 @@ $Orange: #e79b25;
 
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  text-align: center;
 
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -130,6 +134,11 @@ $Orange: #e79b25;
   background-color: rgba(255, 255, 255, 1);
 
   display: flex;
+
+  p {
+    margin: auto;
+    font-size: 28;
+  }
 
   button {
     position: absolute;

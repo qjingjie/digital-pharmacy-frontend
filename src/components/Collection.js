@@ -97,15 +97,21 @@ class Collection extends Component {
       stock: 0,
       desc: "",
       img: "",
-      cart: this.props.cartMem
+      cart: this.props.cartMem,
+      exceedBd: false,
+      isBottomList: false
     };
 
     this.handleRate = this.handleRate.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleScrollList = this.handleScrollList.bind(this);
   }
 
   componentDidMount() {
+    if (this.props.cartMem.length > 2) {
+      this.setState({ exceedBd: true });
+    }
     this.check = setInterval(() => {
       fetch("/finishcollection/")
         .then(response => response.json())
@@ -215,7 +221,28 @@ class Collection extends Component {
       img: ""
     });
   }
+
+  handleScrollList = e => {
+    const bottomList = e.target.scrollHeight - e.target.scrollTop <= 626;
+
+    if (bottomList) {
+      this.setState({ isBottomList: true });
+    } else {
+      this.setState({ isBottomList: false });
+    }
+  };
+
   render() {
+    const cart_arr_down = (
+      <div className="m8-cart-arrow-down">
+        <img src={require("../icons/arrowdown.svg")} alt="down" />
+      </div>
+    );
+    const cart_arr_up = (
+      <div className="m8-cart-arrow-up">
+        <img src={require("../icons/arrowup.svg")} alt="up" />
+      </div>
+    );
     if (this.state.disabled === true) {
       this.next = setTimeout(() => this.props.history.push("/"), 3000);
     }
@@ -301,7 +328,10 @@ class Collection extends Component {
           </div>
         </div>
 
-        <div className="l8-purchased-container">
+        <div
+          className="l8-purchased-container"
+          onScroll={this.handleScrollList}
+        >
           {this.state.selected ? (
             <ItemInfoWithTrans
               name={this.state.item_name}
@@ -323,7 +353,13 @@ class Collection extends Component {
               ))}
             </div>
           )}
-          <div className="l8-arrow-container"></div>
+          <div className="l8-arrow-container">
+            {this.state.exceedBd
+              ? this.state.isBottomList
+                ? cart_arr_up
+                : cart_arr_down
+              : null}
+          </div>
         </div>
       </div>
     );
