@@ -41,28 +41,37 @@ function ItemCTA(props) {
   );
 }
 
-function ItemInfo(props) {
-  return (
-    <div className="l8-iteminfo-container">
-      <div
-        className="m8-iteminfo-img"
-        style={{ backgroundImage: "url(" + props.img + ")" }}
-      ></div>
-      <button type="button" onClick={props.handleClose}>
-        {" "}
-        OK
-      </button>
-      <span className="m8-iteminfo-brand">{props.brand}</span>
-      <span className="m8-iteminfo-name">{props.name}</span>
-      <span className="m8-iteminfo-desc-label">
-        {props.t("general.description")}
-        <br></br>
-        <div className="l8-iteminfo-desc-container">
-          <p>{props.desc}</p>
-        </div>
-      </span>
-    </div>
-  );
+class ItemInfo extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillUnmount() {
+    this.props.handlefalse();
+  }
+  render() {
+    return (
+      <div className="l8-iteminfo-container">
+        <div
+          className="m8-iteminfo-img"
+          style={{ backgroundImage: "url(" + this.props.img + ")" }}
+        ></div>
+        <button type="button" onClick={this.props.handleClose}>
+          {" "}
+          OK
+        </button>
+        <span className="m8-iteminfo-brand">{this.props.brand}</span>
+        <span className="m8-iteminfo-name">{this.props.name}</span>
+        <span className="m8-iteminfo-desc-label">
+          {this.props.t("general.description")}
+          <br></br>
+          <div className="l8-iteminfo-desc-container">
+            <p>{this.props.desc}</p>
+          </div>
+        </span>
+      </div>
+    );
+  }
 }
 
 const ItemInfoWithTrans = withTranslation("common")(ItemInfo);
@@ -106,6 +115,7 @@ class Collection extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleScrollList = this.handleScrollList.bind(this);
+    this.handleSetFalse = this.handleSetFalse.bind(this);
   }
 
   componentDidMount() {
@@ -232,6 +242,10 @@ class Collection extends Component {
     }
   };
 
+  handleSetFalse() {
+    this.setState({ isBottomList: false });
+  }
+
   render() {
     const cart_arr_down = (
       <div className="m8-cart-arrow-down">
@@ -328,10 +342,7 @@ class Collection extends Component {
           </div>
         </div>
 
-        <div
-          className="l8-purchased-container"
-          onScroll={this.handleScrollList}
-        >
+        <div className="l8-purchased-container">
           {this.state.selected ? (
             <ItemInfoWithTrans
               name={this.state.item_name}
@@ -340,9 +351,13 @@ class Collection extends Component {
               desc={this.state.desc}
               img={this.state.img}
               handleClose={this.handleClose}
+              handlefalse={this.handleSetFalse}
             />
           ) : (
-            <div className="l8-itemcta-container">
+            <div
+              className="l8-itemcta-container"
+              onScroll={this.handleScrollList}
+            >
               {this.state.cart.map(item => (
                 <ItemCTA
                   key={item.name}
