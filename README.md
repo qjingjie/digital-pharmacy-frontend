@@ -1,16 +1,11 @@
 ﻿## Current Dependencies
-npm install react-router <br />
-npm install react-router-dom <br />
-npm install node-sass <br />
-npm install --save react-swipeable-views <br />
-npm install react-swipeable-views-utils <br />
-npm install react-transition-group --save <br />
-npm install --save i18next <br />
-npm install --save react-i18next <br />
-npm install --save reace-player <br />
 
+See package.json
 
+## ToDo
 
+Remove arrow UI from prescription page - improve flow for UX <br />
+Add image for qr scanning page <br />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

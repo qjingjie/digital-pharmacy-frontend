@@ -156,8 +156,6 @@ class Gsl extends Component {
 
       // For shopping cart
       tprice: parseFloat(this.props.tpriceMem).toFixed(2),
-      exceedBd: false, // Check if there are more than 5 different items in cart
-      isBottomCart: false, // Check if the bottom of the cart list is reached if exceedBd is true
       emptyText: null,
 
       // For item list
@@ -183,7 +181,6 @@ class Gsl extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-    this.handleScrollCart = this.handleScrollCart.bind(this);
     this.handlePlus = this.handlePlus.bind(this);
     this.handleMinus = this.handleMinus.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
@@ -257,16 +254,6 @@ class Gsl extends Component {
       this.setState({ isBottomList: true });
     } else {
       this.setState({ isBottomList: false });
-    }
-  };
-
-  handleScrollCart = e => {
-    const bottomCart = e.target.scrollHeight - e.target.scrollTop <= 350;
-
-    if (bottomCart) {
-      this.setState({ isBottomCart: true });
-    } else {
-      this.setState({ isBottomCart: false });
     }
   };
 
@@ -373,17 +360,6 @@ class Gsl extends Component {
   }
 
   render() {
-    const cart_arr_down = (
-      <div className="m3-cart-arrow-down">
-        <img src={require("../icons/arrowdown.svg")} alt="down" />
-      </div>
-    );
-    const cart_arr_up = (
-      <div className="m3-cart-arrow-up">
-        <img src={require("../icons/arrowup.svg")} alt="up" />
-      </div>
-    );
-
     if (this.state.redirect) {
       this.state.updateCart([], 0.0);
       return <Redirect push to="/" />;
@@ -444,10 +420,7 @@ class Gsl extends Component {
               {this.props.t("general.subtotal")}
             </h2>
           </div>
-          <div
-            className="l3-cart-list-container"
-            onScroll={this.handleScrollCart}
-          >
+          <div className="l3-cart-list-container">
             {this.state.cart.map(item => (
               <CartItems
                 key={item.name}
@@ -457,13 +430,6 @@ class Gsl extends Component {
                 handleDelete={() => this.handleDelete(item.id)}
               />
             ))}
-          </div>
-          <div className="l3-cart-arrow-container">
-            {this.state.exceedBd
-              ? this.state.isBottomCart
-                ? cart_arr_up
-                : cart_arr_down
-              : null}
           </div>
           <div className="l3-cart-price-container">
             <p className="m3-tprice-label">{this.props.t("general.tprice")}</p>

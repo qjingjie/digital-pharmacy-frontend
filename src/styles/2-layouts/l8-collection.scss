@@ -23,7 +23,7 @@ $Orange: #e79b25;
 .l8-purchased-container {
   position: absolute;
   height: 98%;
-  width: 29.5vw;
+  width: 28vw;
   top: 1%;
   right: 0.5vw;
 
@@ -37,9 +37,7 @@ $Orange: #e79b25;
 
 .l8-itemcta-container {
   width: 100%;
-  height: calc(100% - 80px);
-
-  margin-top: 30px;
+  height: 100%;
 
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -51,10 +49,10 @@ $Orange: #e79b25;
 
 .l8-itemcta-container2 {
   position: relative;
-  width: 80%;
-  height: calc((100% / 2) - 30px);
-  margin-left: 10%;
-  margin-bottom: 30px;
+  width: 95%;
+  height: calc((100% / 2.5) - 10px);
+  margin-left: 2.5%;
+  margin-bottom: 10px;
 
   border-radius: 10px;
   scroll-snap-align: start;
@@ -95,11 +93,11 @@ $Orange: #e79b25;
 }
 
 .l8-iteminfo-container {
-  width: 90%;
-  height: calc(100% - 70px);
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
 
   margin-top: 10px;
-  margin-left: 5%;
+  margin-left: 10px;
 
   border-radius: 10px;
 
