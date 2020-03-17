@@ -9,7 +9,7 @@ class Payment extends Component {
 
     this.state = {
       redirect: false,
-      transactionPass: true,
+      transactionPass: false,
       payment_error: false
     };
   }

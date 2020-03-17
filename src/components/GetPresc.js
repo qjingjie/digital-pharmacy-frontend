@@ -20,11 +20,6 @@ class AwaitQR extends Component {
           src={require("../img/qr_code.png")}
           alt="qr"
         />
-        {/*<img
-          className="m-scan-line"
-          src={require("../icons/scan-line.svg")}
-          alt="scanline"
-        >*</img>*/}
       </div>
     );
   }

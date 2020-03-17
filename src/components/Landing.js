@@ -37,6 +37,7 @@ class Landing extends Component {
         >
           <div className="m1-imgA" />
           <div className="m1-imgB" />
+          <div className="m1-imgC" />
         </AutoPlaySwipeableViews>
 
         <div className="l1-begin-panel">

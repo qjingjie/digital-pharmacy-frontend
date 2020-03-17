@@ -4,7 +4,7 @@ See package.json
 
 ## ToDo
 
-Remove arrow UI from prescription page - improve flow for UX <br />
+Add icons + translation + collection error <br />
 Add image for qr scanning page <br />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

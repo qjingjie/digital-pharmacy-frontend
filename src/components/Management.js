@@ -26,7 +26,7 @@ function InventorySlot(props) {
         </p>
         <p
           className="m9-inventory-stock"
-          style={{ color: props.stock === 0 ? "red" : "green" }}
+          style={{ color: props.stock === 0 ? "#cc1100" : "green" }}
         >
           {props.stock}
         </p>

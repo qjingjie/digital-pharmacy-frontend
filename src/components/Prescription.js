@@ -39,7 +39,7 @@ function PrescItem(props) {
       <p className="m5-item-center-align">×{props.purchased}</p>
       <p
         className="m5-item-center-align"
-        style={{ color: props.stock === 0 ? "red" : "green" }}
+        style={{ color: props.stock === 0 ? "#cc1100" : "green" }}
       >
         {props.stock}
       </p>
@@ -64,8 +64,6 @@ class Prescription extends Component {
       valid_till: null,
       medicines: null,
       email_sub: null,
-      isBottomList: false,
-      exceedBd: false,
 
       tprice: 0,
       renderEmpty: false
@@ -75,7 +73,6 @@ class Prescription extends Component {
     this.handleClose = this.handleClose.bind(this);
     this.handlePlus = this.handlePlus.bind(this);
     this.handleMinus = this.handleMinus.bind(this);
-    this.handleScrollList = this.handleScrollList.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
@@ -98,6 +95,14 @@ class Prescription extends Component {
             data.medicines.medicine[i].quantity -
             data.medicines.medicine[i].collected;
 
+          if (
+            data.medicines.medicine[i].purchasing >=
+            data.medicines.medicine[i].stock
+          ) {
+            data.medicines.medicine[i].purchasing =
+              data.medicines.medicine[i].stock;
+          }
+
           data.medicines.medicine[i]["subtotal"] =
             (data.medicines.medicine[i].quantity -
               data.medicines.medicine[i].collected) *
@@ -111,8 +116,7 @@ class Prescription extends Component {
           valid_till: data.medicines.ValidDate,
           medicines: data.medicines.medicine,
           isLoaded: true,
-          tprice: total.toFixed(2),
-          exceedBd: data.medicines.medicine.length > 3 ? true : false
+          tprice: total.toFixed(2)
         });
       });
   }
@@ -178,16 +182,6 @@ class Prescription extends Component {
     });
   }
 
-  handleScrollList = e => {
-    const bottomList = e.target.scrollHeight - e.target.scrollTop <= 345;
-
-    if (bottomList) {
-      this.setState({ isBottomList: true });
-    } else {
-      this.setState({ isBottomList: false });
-    }
-  };
-
   toggle() {
     this.setState(state => ({
       email_sub: !state.email_sub
@@ -195,16 +189,6 @@ class Prescription extends Component {
   }
 
   render() {
-    const cart_arr_down = (
-      <div className="m5-cart-arrow-down">
-        <img src={require("../icons/arrowdown.svg")} alt="down" />
-      </div>
-    );
-    const cart_arr_up = (
-      <div className="m5-cart-arrow-up">
-        <img src={require("../icons/arrowup.svg")} alt="up" />
-      </div>
-    );
     if (this.state.redirect) {
       return <Redirect push to="/" />;
     }
@@ -254,10 +238,7 @@ class Prescription extends Component {
               {this.props.t("general.subtotal")}
             </h2>
           </div>
-          <div
-            className="l5-prescription-list-container"
-            onScroll={this.handleScrollList}
-          >
+          <div className="l5-prescription-list-container">
             {this.state.isLoaded
               ? this.state.medicines.map(item => (
                   <PrescItem
@@ -274,13 +255,6 @@ class Prescription extends Component {
                     minus={this.handleMinus}
                   />
                 ))
-              : null}
-          </div>
-          <div className="l5-presc-arrow-container">
-            {this.state.exceedBd
-              ? this.state.isBottomList
-                ? cart_arr_up
-                : cart_arr_down
               : null}
           </div>
           {this.state.renderEmpty ? (

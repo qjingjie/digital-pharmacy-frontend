@@ -165,6 +165,7 @@ class NumKeyboard2FA extends Component {
           <button
             onClick={() => {
               this.props.handle(this.state.code2FA);
+              this.setState({ code2FA: [null, null, null, null, null, null] });
             }}
             type="button"
           >

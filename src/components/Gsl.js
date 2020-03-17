@@ -93,7 +93,9 @@ function ItemCTA(props) {
           <p className="m3-itemcta-stock-label">{props.t("general.stock")}:</p>
           <p
             className="m3-itemcta-stock"
-            style={{ color: props.stock === "0" ? "red" : "green" }}
+            style={{
+              color: props.stock === "0" ? "#cc1100" : "green"
+            }}
           >
             {props.stock}
           </p>
@@ -361,7 +363,6 @@ class Gsl extends Component {
 
   render() {
     if (this.state.redirect) {
-      this.state.updateCart([], 0.0);
       return <Redirect push to="/" />;
     }
 
