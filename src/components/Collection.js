@@ -116,6 +116,11 @@ class Collection extends Component {
           if (data === "Done") {
             this.setState({ compeleted: true });
             clearInterval(this.check);
+          } else {
+            if (data === "Error") {
+              this.setState({ error: true });
+              clearInterval(this.check);
+            }
           }
         });
     }, 2000);

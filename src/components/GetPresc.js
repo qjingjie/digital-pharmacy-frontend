@@ -105,7 +105,7 @@ class GetPresc extends Component {
     super(props);
     this.state = {
       redirect: false,
-      qr_scanned: true,
+      qr_scanned: false,
       error: false
     };
 

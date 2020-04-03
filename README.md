@@ -2,11 +2,6 @@
 
 See package.json
 
-## ToDo
-
-Add icons + translation + collection error <br />
-Add image for qr scanning page <br />
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -161,7 +161,7 @@ class Management extends Component {
         this.setState({
           selected: true,
           item_id: identifier,
-          item_brand: "test", //this.state.updated_cart.medicines[i].brand,
+          item_brand: this.state.updated_cart.medicines[i].brand, //this.state.updated_cart.medicines[i].brand,
           item_name: this.state.updated_cart.medicines[i].name,
           stock: this.state.updated_cart.medicines[i].stock,
           img: this.state.updated_cart.medicines[i].pic
