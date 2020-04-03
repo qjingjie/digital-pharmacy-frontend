@@ -16,7 +16,16 @@
     "timeout": "seconds before timeout.",
     "update_stock": "Update Stock",
     "update_exit": "Update and Exit",
-    "exiting": "Updating database..."
+    "exiting": "Updating database...",
+    "nric": "NRIC",
+    "presc_id": "Prescription ID",
+    "valid": "Valid till",
+    "yes": "Yes",
+    "no": "No",
+    "presc_qty": "Prescribed Quantity",
+    "select_qty": "Selected Quantity",
+    "prev_qty": "Previously Purchased",
+    "ok": "OK"
   },
   "status": {
     "JAN": "JAN",
@@ -58,6 +67,11 @@
     "incorrect": "The code that you have entered is incorrect, please try again.",
     "qr_error": "Invalid QR code detected, please try again."
   },
+  "prescription": {
+    "email": "Medicine usage instructions will be sent to your provided email address if the email service option is selected.",
+    "sub_email": "Subscribed to email service",
+    "error": "Please ensure at least one item is selected."
+  },
   "selpay": {
     "helper": "Please Select A Payment Option",
     "credit": "Credit / Debit Card Payment",
@@ -71,6 +85,9 @@
     "inprogress": "Collection in progress...",
     "complete": "Collection completed.",
     "wait": "Please hold on while your purchases are being collected.",
+    "error1": "Unfortunately, an error has occured during the collection process.",
+    "error2": "Please verify your purchase and call the service hotline 6123 4567 to make the necessary claims.",
+    "error3": "We apologise for the inconvenience caused.",
     "thank": "Thank you for using our service!",
     "rate": "Please spent a moment to rate us!",
     "rated": "Thank you for your valuable input!",

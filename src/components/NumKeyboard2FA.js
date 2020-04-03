@@ -4,7 +4,8 @@ import React, { Component } from "react";
 // 4x3 Numeric keyboard and 6 input field 2FA
 // -------------------------- Props --------------------------
 // enter                  -> enter text (translation purposes)
-// handle                -> handle enter button (update parent)
+// handle                 -> handle enter button (update parent)
+// resetError             -> reset incorrect code error
 
 class NumKeyboard2FA extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class NumKeyboard2FA extends Component {
   }
 
   handleInput(value) {
+    this.props.resetError();
     if (value === "bkspace") {
       if (this.state.code2FA[0] !== null) {
         if (this.state.code2FA[5] !== null) {
@@ -147,13 +149,12 @@ class NumKeyboard2FA extends Component {
             9
           </button>
           <button
+            className="m11-back"
             onClick={() => {
               this.handleInput("bkspace");
             }}
             type="button"
-          >
-            back
-          </button>
+          ></button>
           <button
             onClick={() => {
               this.handleInput(0);
@@ -163,14 +164,13 @@ class NumKeyboard2FA extends Component {
             0
           </button>
           <button
+            className="m11-enter"
             onClick={() => {
               this.props.handle(this.state.code2FA);
               this.setState({ code2FA: [null, null, null, null, null, null] });
             }}
             type="button"
-          >
-            {this.props.enter}
-          </button>
+          ></button>
         </div>
       </div>
     );

@@ -49,8 +49,7 @@ function ItemInfo(props) {
         style={{ backgroundImage: "url(" + props.img + ")" }}
       ></div>
       <button type="button" onClick={props.handleClose}>
-        {" "}
-        OK
+        {props.t("general.ok")}
       </button>
       <span className="m8-iteminfo-brand">{props.brand}</span>
       <span className="m8-iteminfo-name">{props.name}</span>
@@ -75,6 +74,7 @@ class Collection extends Component {
       progress: 0,
       compeleted: false,
       rating: 0,
+      error: false,
 
       disabled: false, //disable click events on svg
       star1_fill: "#e79b25",
@@ -271,6 +271,18 @@ class Collection extends Component {
                   handle={() => this.handleRate("5")}
                 />
               </div>
+              <RouteBtn
+                classname="m8-home"
+                path="/"
+                chkcart="False"
+                payment="False"
+              />
+            </div>
+          ) : this.state.error ? (
+            <div>
+              <p className="m8-error1">{this.props.t("collection.error1")}</p>
+              <p className="m8-error2">{this.props.t("collection.error2")}</p>
+              <p className="m8-error3">{this.props.t("collection.error3")}</p>
               <RouteBtn
                 classname="m8-home"
                 path="/"

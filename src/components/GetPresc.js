@@ -34,6 +34,7 @@ class Await2FA extends Component {
     };
 
     this.submit2FA = this.submit2FA.bind(this);
+    this.resetError = this.resetError.bind(this);
   }
 
   componentDidMount() {
@@ -54,7 +55,6 @@ class Await2FA extends Component {
     for (i = 0; i < code.length; i++) {
       if (code[i] === null) {
         this.setState({ incorrectCode: true });
-        setTimeout(() => this.setState({ incorrectCode: false }), 3000);
         return;
       }
     }
@@ -69,11 +69,15 @@ class Await2FA extends Component {
           this.props.history.push("/Prescription");
         } else {
           this.setState({ incorrectCode: true });
-          setTimeout(() => this.setState({ incorrectCode: false }), 3000);
         }
       })
     );
   }
+
+  resetError() {
+    this.setState({ incorrectCode: false });
+  }
+
   render() {
     return (
       <div className="l4-info-container">
@@ -81,7 +85,7 @@ class Await2FA extends Component {
         {this.state.incorrectCode ? (
           <p className="m4-2fa-error">{this.props.t("getpresc.incorrect")}</p>
         ) : null}
-        <NumKeyboard2FA enter="enter" handle={this.submit2FA} />
+        <NumKeyboard2FA handle={this.submit2FA} resetError={this.resetError} />
         <CdCounter
           classname="m4-2fa-counter"
           initialCount={this.props.timeoutSec}
@@ -101,7 +105,7 @@ class GetPresc extends Component {
     super(props);
     this.state = {
       redirect: false,
-      qr_scanned: false,
+      qr_scanned: true,
       error: false
     };
 
@@ -112,7 +116,7 @@ class GetPresc extends Component {
   componentDidMount() {
     this.page_timeout = setTimeout(
       () => this.setState({ redirect: true }),
-      180000000
+      900000 //15 mins
     );
   }
 
@@ -151,31 +155,28 @@ class GetPresc extends Component {
     return (
       <div className="l4-page-container">
         {this.state.qr_scanned ? (
-          <Await2FAwithRouterTrans
-            timeout="60000"
-            timeoutSec="60"
-            handleTimeout={this.handleTimeout}
-            timeoutText={this.props.t("general.timeout")}
-          />
+          <div>
+            <div className="l4-image2" />
+            <Await2FAwithRouterTrans
+              timeout="60000"
+              timeoutSec="60"
+              handleTimeout={this.handleTimeout}
+              timeoutText={this.props.t("general.timeout")}
+            />
+          </div>
         ) : (
-          <AwaitQR
-            text={
-              this.state.error
-                ? this.props.t("getpresc.qr_error")
-                : this.props.t("getpresc.qr")
-            }
-            handle={this.chkQR}
-          />
+          <div>
+            <div className="l4-image1" />
+            <AwaitQR
+              text={
+                this.state.error
+                  ? this.props.t("getpresc.qr_error")
+                  : this.props.t("getpresc.qr")
+              }
+              handle={this.chkQR}
+            />
+          </div>
         )}
-        {/*<ReactPlayer
-          className="m-react-player"
-          url={test}
-          playing
-          loop
-          muted
-          width="600px"
-          height="600px"
-        />*/}
       </div>
     );
   }

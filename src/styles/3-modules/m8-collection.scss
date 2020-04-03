@@ -50,6 +50,48 @@ $PrimaryFont: whitesmoke;
   outline: none;
 }
 
+.m8-error1 {
+  position: absolute;
+  width: 90%;
+
+  text-align: center;
+
+  margin-top: 150px;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 22px;
+  color: $PrimaryFont;
+  font-weight: bold;
+}
+
+.m8-error2 {
+  position: absolute;
+  width: 90%;
+
+  text-align: center;
+
+  margin-top: 180px;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 22px;
+  color: $PrimaryFont;
+  font-weight: bold;
+}
+
+.m8-error3 {
+  position: absolute;
+  width: 90%;
+
+  text-align: center;
+
+  margin-top: 250px;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 22px;
+  color: $PrimaryFont;
+  font-weight: bold;
+}
+
 .m8-heading-inprogress {
   position: absolute;
   width: 90%;

@@ -8,7 +8,10 @@ function PrescItem(props) {
     <div className="l5-prescription-item-container">
       <img src={props.img} alt="medicine" />
 
-      <p className="m5-item-left-align">{props.name}</p>
+      <div>
+        <p className="m5-item-left-align-small">{props.brand}</p>
+        <p className="m5-item-left-align-large">{props.name}</p>
+      </div>
 
       <p className="m5-item-center-align">×{props.presc_quantity}</p>
       <div className="l5-prescription-qty-container">
@@ -77,7 +80,10 @@ class Prescription extends Component {
   }
 
   componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 18000000000); // Redirects to landing page after 3mins on inactivity
+    this.page_timeout = setTimeout(
+      () => this.setState({ redirect: true }),
+      900000
+    );
 
     fetch("/PMed/")
       .then(response => response.json())
@@ -122,7 +128,7 @@ class Prescription extends Component {
   }
 
   componentWillUnmount() {
-    clearTimeout(this.id);
+    clearTimeout(this.page_timeout);
 
     var cart = this.state.medicines;
     cart[0]["Email"] = this.state.email_sub; // Email selection will be returned in the first medicine object (some weird issue with assigning it outside)
@@ -195,18 +201,23 @@ class Prescription extends Component {
     return (
       <div className="l5-page-container">
         <div className="l5-prescription-info-container">
-          <h1 className="m5-nric">Nric: {this.state.nric}</h1>
-          <h1 className="m5-prescription-id">
-            Prescription ID: {this.state.presc_id}
+          <h1 className="m5-nric">
+            {this.props.t("general.nric")}: {this.state.nric}
           </h1>
-          <h1 className="m5-valid-date">Valid till: {this.state.valid_till}</h1>
+          <h1 className="m5-prescription-id">
+            {this.props.t("general.presc_id")}: {this.state.presc_id}
+          </h1>
+          <h1 className="m5-valid-date">
+            {this.props.t("general.valid")}: {this.state.valid_till}
+          </h1>
         </div>
         <div className="l5-email-message-container">
           <p className="m5-email-message">
-            Medicine usage instructions will be sent to your provided email
-            address if the email service option is selected.{" "}
+            {this.props.t("prescription.email")}
           </p>
-          <p className="m5-email-question">Subscribed to email service:</p>
+          <p className="m5-email-question">
+            {this.props.t("prescription.sub_email")}:
+          </p>
           <label className="m5-slider-switch">
             <input
               type="checkbox"
@@ -214,8 +225,8 @@ class Prescription extends Component {
               onClick={this.toggle}
             ></input>
             <span>
-              <p>Yes</p>
-              <p>No</p>
+              <p>{this.props.t("general.yes")}</p>
+              <p>{this.props.t("general.no")}</p>
             </span>
           </label>
         </div>
@@ -224,9 +235,15 @@ class Prescription extends Component {
             <h2 className="m5-headings-left-align">
               {this.props.t("general.item")}
             </h2>
-            <h2 className="m5-headings-center-align">Prescribed Quantity</h2>
-            <h2 className="m5-headings-center-align">Selected Quantity</h2>
-            <h2 className="m5-headings-center-align">Previously Purchased</h2>
+            <h2 className="m5-headings-center-align">
+              {this.props.t("general.presc_qty")}
+            </h2>
+            <h2 className="m5-headings-center-align">
+              {this.props.t("general.select_qty")}
+            </h2>
+            <h2 className="m5-headings-center-align">
+              {this.props.t("general.prev_qty")}
+            </h2>
             <h2 className="m5-headings-center-align">
               {" "}
               {this.props.t("general.stock")}
@@ -244,6 +261,7 @@ class Prescription extends Component {
                   <PrescItem
                     key={item.name}
                     id={item.id}
+                    brand={item.brand}
                     name={item.name}
                     presc_quantity={item.quantity}
                     purchased={item.collected}
@@ -259,9 +277,9 @@ class Prescription extends Component {
           </div>
           {this.state.renderEmpty ? (
             <div className="l5-empty-prompt-container">
-              <p>Please ensure at least one item is selected.</p>
+              <p>{this.props.t("prescription.error")}</p>
               <button type="button" onClick={this.handleClose}>
-                OK
+                {this.props.t("general.ok")}
               </button>
             </div>
           ) : null}

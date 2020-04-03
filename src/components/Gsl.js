@@ -193,7 +193,7 @@ class Gsl extends Component {
   componentDidMount() {
     this.page_timeout = setTimeout(
       () => this.setState({ redirect: true }),
-      900000
+      900000 // 15 mins
     );
 
     fetch("/OTCMedicine/")
@@ -203,7 +203,7 @@ class Gsl extends Component {
           isLoaded: true,
           items: data
         });
-      }); //API call for listing items
+      });
   }
 
   componentWillUnmount() {

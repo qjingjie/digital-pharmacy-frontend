@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 import BackBtn from "./BackBtn";
+import RouteBtn from "./RouteBtn";
 
 const monthNames = [
   "/ 1 /",
@@ -127,6 +128,12 @@ class StatusBar extends Component {
         >
           {this.state.lang_dis}
         </button>
+        <RouteBtn
+          classname="m10-home"
+          path="/"
+          chkcart="False"
+          payment="False"
+        />
         <div className="l10-clk-container">
           <p className="m10-day"> {this.props.t(this.state.day)} </p>
           <p className="m10-line1"> </p>

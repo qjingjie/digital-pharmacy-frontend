@@ -147,6 +147,30 @@ $Orange: #e79b25;
 }
 // ==================================================================================
 // module container: l5-prescription-item-container
+.m5-item-left-align-small {
+  height: 40%;
+  display: flex;
+  text-align: left;
+  align-items: flex-end;
+
+  color: darken($PrimaryFont, 10%);
+  font-size: 14px;
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.m5-item-left-align-large {
+  height: 60%;
+
+  display: flex;
+  text-align: left;
+  align-items: flex-start;
+
+  color: $PrimaryFont;
+  margin: 0px;
+  padding-left: 10px;
+}
+
 .m5-item-left-align {
   height: 100%;
 
@@ -232,7 +256,7 @@ $Orange: #e79b25;
 .m5-checkoutpresc-cta {
   position: absolute;
   width: 450px;
-  height: 60px;
+  height: 45px;
   bottom: 1.5%;
   right: 0.5%;
 
@@ -244,13 +268,13 @@ $Orange: #e79b25;
 
   background-color: $Orange;
   border: none;
-  border-radius: 10px;
+  border-radius: 22.5px;
 
   outline: none;
 }
 // ==================================================================================
 // module container: l5-prescription-panel-container
-.m-checkoutpresc-cta:active {
+.m5-checkoutpresc-cta:active {
   background-color: darken($Orange, 10%);
   color: darken($PrimaryFont, 10%);
 }

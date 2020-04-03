@@ -18,3 +18,39 @@
   display: flexbox;
   text-align: center;
 }
+
+.l4-image1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 0px;
+  left: 0px;
+
+  margin-top: 30px;
+  margin-left: calc((100vw - 1200px) / 3);
+
+  background: url("../../img/qr_demo1.jpg");
+  background-size: 150%;
+  background-repeat: no-repeat;
+  background-position: -120px 0px;
+
+  border-radius: 10px;
+}
+
+.l4-image2 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 0px;
+  left: 0px;
+
+  margin-top: 30px;
+  margin-left: calc((100vw - 1200px) / 3);
+
+  background: url("../../img/qr_demo2.PNG");
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+
+  border-radius: 10px;
+}

@@ -16,7 +16,16 @@
     "timeout": "秒之后验证码失效。",
     "update_stock": "更新库存",
     "update_exit": "更新后退出",
-    "exiting": "正在更新数据库..."
+    "exiting": "正在更新数据库...",
+    "nric": "身份证号码",
+    "presc_id": "处方号",
+    "valid": "有效至",
+    "yes": "是",
+    "no": "否",
+    "presc_qty": "处方规定数量",
+    "select_qty": "购买数量",
+    "prev_qty": "已购买数量",
+    "ok": "确定"
   },
   "status": {
     "JAN": "一月",
@@ -58,6 +67,11 @@
     "incorrect": "验证失败， 请您再试一试。",
     "qr_error": "二维码扫描失败，请重试。"
   },
+  "prescription": {
+    "email": "若您选择电邮服务，药物使用说明将发送至您的电子邮箱。",
+    "sub_email": "已订阅电子邮件服务",
+    "error": "请确保您已选择至少一项药物。"
+  },
   "selpay": {
     "helper": "请选择支付方式",
     "credit": "信用卡/借记卡付款",
@@ -71,6 +85,9 @@
     "inprogress": "正在采集药物。。。",
     "complete": "采集完成。",
     "wait": "请稍等，您的药物正在采集中。",
+    "error1": "Unfortunately, an error has occured during the collection process.",
+    "error2": "Please verify your purchase and call the service hotline 6123 4567 to make the necessary claims.",
+    "error3": "We apologise for the inconvenience caused.",
     "thank": "感谢您对我们的支持！",
     "rate": "请您给我们评分！",
     "rated": "感谢您宝贵的意见！",
